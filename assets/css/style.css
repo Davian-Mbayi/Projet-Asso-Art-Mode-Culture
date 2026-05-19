@@ -1,0 +1,653 @@
+/* ==========================================
+   VARIABLES GLOBALES (La Charte Graphique)
+   ========================================== */
+:root {
+    /* Couleurs Officielles AM&C */
+    --couleur-or: #D8B25A;       /* Le doré du logo */
+    --couleur-noir: #111111;     /* Noir profond */
+    --couleur-blanc: #FFFFFF;
+    --couleur-blanc-casse: #F7F4EF;
+    
+    /* Typographies */
+    --font-titre: 'Playfair Display', serif;
+    --font-texte: 'Montserrat', sans-serif; /* Moderne et sans-serif comme demandé */
+    
+    /* Espacements standardisés pour tout le groupe */
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+}
+
+/* ==========================================
+   RESET DE BASE (Pour éviter les bugs entre navigateurs)
+   ========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-texte);
+    color: var(--couleur-noir);
+    background-color: var(--couleur-blanc-casse);
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-titre);
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================
+   CLASSES UTILITAIRES (Pour tout le groupe)
+   ========================================== */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Les boutons standardisés */
+.btn-primary {
+    background-color: var(--couleur-or);
+    color: var(--couleur-noir);
+    padding: 10px 24px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--couleur-noir);
+    color: var(--couleur-or);
+}
+
+/* ==========================================
+   HEADER & NAVIGATION (La barre du haut)
+   ========================================== */
+.main-header {
+    background-color: var(--couleur-noir);
+    padding: 15px 0;
+    /* Ces deux lignes permettent au menu de rester accroché en haut quand on défile */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(216, 178, 90, 0.2); /* Ligne dorée très fine en dessous */
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Pousse le logo à gauche et le menu à droite */
+    align-items: center; /* Centre verticalement */
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Taille du logo */
+.logo img {
+    height: 45px;
+    width: auto;
+}
+
+/* La liste de liens */
+.nav-links {
+    list-style: none; /* Enlève les points de la liste */
+    display: flex; /* Aligne les liens horizontalement */
+    align-items: center;
+    gap: 30px; /* Espace entre chaque lien */
+}
+
+/* Le style du texte des liens */
+.nav-links a {
+    color: var(--couleur-blanc-casse);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+/* Effet au survol de la souris */
+.nav-links a:hover {
+    color: var(--couleur-or);
+}
+
+/* Le bouton spécifique "Rejoindre AMC" dans le menu */
+.nav-links .btn-nav {
+    background-color: var(--couleur-or);
+    color: var(--couleur-noir);
+    padding: 8px 20px;
+    font-weight: 600;
+}
+
+.nav-links .btn-nav:hover {
+    background-color: var(--couleur-blanc-casse);
+    color: var(--couleur-noir);
+}
+
+/* ==========================================
+   HERO SECTION (Noir & Or Minimaliste)
+   ========================================== */
+.hero-minimalist {
+    /* Le dégradé subtil pour éviter un noir totalement plat */
+    background: radial-gradient(circle at center, #1a1a1a 0%, var(--couleur-noir) 100%);
+    color: var(--couleur-or);
+    
+    /* Hauteur immersive : 85% de la hauteur de l'écran */
+    min-height: 85vh; 
+    
+    /* Centrage parfait avec Flexbox */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-md);
+}
+
+.hero-title {
+    /* clamp(min, idéal, max) : Typographie fluide et responsive */
+    font-size: clamp(2.5rem, 6vw, 5rem); 
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    font-weight: 400; /* Un texte fin est souvent plus élégant qu'un gras massif */
+}
+
+.hero-subtitle {
+    font-family: var(--font-texte);
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    color: var(--couleur-blanc-casse); /* Blanc cassé pour adoucir le contraste et faciliter la lecture */
+    margin-bottom: var(--spacing-md);
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* Conteneur des boutons */
+.hero-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur smartphone */
+}
+
+/* Bouton secondaire transparent avec bordure dorée (Outline) */
+.btn-outline-gold {
+    background-color: transparent;
+    color: var(--couleur-or);
+    padding: 10px 24px;
+    border: 1px solid var(--couleur-or);
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+    background-color: var(--couleur-or);
+    color: var(--couleur-noir);
+}
+
+/* ==========================================
+   SECTION UNIVERS (Contraste Clair)
+   ========================================== */
+.univers-section {
+    background-color: var(--couleur-blanc-casse);
+    color: var(--couleur-noir);
+    padding: var(--spacing-lg) 0; /* Un grand espacement pour respirer */
+}
+
+/* Style commun pour les titres de section */
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-lg);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Le petit détail chic : une ligne dorée sous le titre */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background-color: var(--couleur-or);
+    margin: 15px auto 0;
+}
+
+/* La Grille CSS intelligente */
+.univers-grid {
+    display: grid;
+    /* auto-fit : place autant de cartes que possible par ligne sans les écraser */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+}
+
+/* Le design des cartes */
+.univers-card {
+    background-color: var(--couleur-blanc);
+    border: 1px solid #E8DDD0; /* Le beige premium de la charte */
+    padding: var(--spacing-md);
+    text-align: center;
+    min-height: 150px;
+    
+    /* Centrage du texte à l'intérieur de la carte */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Préparation pour l'animation */
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+.univers-card h3 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+/* L'effet "Hover premium" demandé au survol */
+.univers-card:hover {
+    transform: translateY(-8px); /* La carte se soulève légèrement */
+    box-shadow: 0 15px 30px rgba(17, 17, 17, 0.08); /* Ombre douce */
+    border-color: var(--couleur-or); /* La bordure devient dorée */
+    color: var(--couleur-or);
+}
+
+/* ==========================================
+   SECTION PRÉSENTATION (Fond Blanc)
+   ========================================== */
+.presentation-section {
+    background-color: var(--couleur-blanc);
+    padding: var(--spacing-lg) 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.presentation-text {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #444; /* Un gris très foncé, plus doux à lire que le noir pur sur fond blanc */
+    line-height: 1.8;
+}
+
+/* ==========================================
+   SECTION CHIFFRES CLÉS (Fond Noir, Texte Or)
+   ========================================== */
+.stats-section {
+    background-color: var(--couleur-noir);
+    padding: var(--spacing-lg) 0;
+    border-top: 1px solid rgba(216, 178, 90, 0.2);
+    border-bottom: 1px solid rgba(216, 178, 90, 0.2);
+}
+
+.stats-grid {
+    display: grid;
+    /* Crée automatiquement les colonnes selon la place disponible */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    text-align: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Le style des gros chiffres */
+.stat-number {
+    font-family: var(--font-titre);
+    font-size: 3.5rem;
+    color: var(--couleur-or);
+    font-weight: 600;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+/* Le texte sous les chiffres */
+.stat-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--couleur-blanc-casse);
+}
+/* ==========================================
+   SECTION ÉVÉNEMENTS (Cartes Premium)
+   ========================================== */
+.events-section {
+    background-color: var(--couleur-blanc-casse);
+    padding: var(--spacing-lg) 0;
+}
+
+.events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* Structure de la carte */
+.event-card {
+    background-color: var(--couleur-blanc);
+    border: 1px solid #E8DDD0;
+    overflow: hidden; /* Empêche l'image de dépasser quand elle zoome */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+/* Gestion de l'image et de son animation */
+.event-image {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Simule l'image qui zoome au survol de la carte entière */
+.event-card:hover .event-image div {
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+}
+
+/* La pastille de date posée sur l'image */
+.event-date {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--couleur-or);
+    color: var(--couleur-noir);
+    padding: 8px 15px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* Le contenu texte sous l'image */
+.event-content {
+    padding: 25px;
+}
+
+.event-tag {
+    font-size: 0.8rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.event-title {
+    font-size: 1.3rem;
+    margin: 10px 0;
+    line-height: 1.4;
+}
+
+.event-location {
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 20px;
+}
+
+/* Le lien en bas de carte */
+.event-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--couleur-noir);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.event-link span {
+    margin-left: 8px;
+    transition: transform 0.3s;
+}
+
+.event-link:hover {
+    color: var(--couleur-or);
+}
+
+.event-link:hover span {
+    transform: translateX(5px); /* La flèche avance au survol */
+}
+
+
+
+
+/* ==========================================
+   PIED DE PAGE (FOOTER)
+   ========================================== */
+.main-footer {
+    background-color: var(--couleur-noir);
+    color: var(--couleur-blanc-casse);
+    padding-top: var(--spacing-lg);
+    border-top: 2px solid var(--couleur-or); /* Petite ligne dorée pour séparer du contenu */
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-logo {
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.footer-desc {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+/* Titres des colonnes */
+.footer-col h4 {
+    color: var(--couleur-or);
+    font-family: var(--font-titre);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Listes de liens et contact */
+.footer-links, .footer-contact {
+    list-style: none;
+}
+
+.footer-links li, .footer-contact li {
+    margin-bottom: 12px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.footer-links a {
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--couleur-or);
+}
+
+/* Réseaux sociaux (texte pour l'instant, on pourra remplacer par des icônes SVG plus tard) */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--couleur-or);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+.social-links a:hover {
+    color: var(--couleur-blanc);
+}
+
+/* La barre de copyright tout en bas */
+.footer-bottom {
+    background-color: #0a0a0a; /* Un noir encore plus profond que le reste du footer */
+    padding: 20px 0;
+    font-size: 0.8rem;
+    color: #666;
+    border-top: 1px solid #222;
+}
+
+
+
+/* ==========================================
+   RÈGLES RESPONSIVE (MOBILES & TABLETTES)
+   ========================================== */
+@media screen and (max-width: 768px) {
+    /* 1. On réduit les marges globales pour les petits écrans */
+    :root {
+        --spacing-lg: 2.5rem; /* Au lieu de 4rem */
+        --spacing-md: 1.5rem; /* Au lieu de 2rem */
+    }
+
+    /* 2. On réduit légèrement la taille des événements pour qu'ils rentrent bien */
+    .events-grid {
+        grid-template-columns: 1fr; /* 1 seule carte par ligne sur mobile */
+    }
+
+    /* 3. On centre les boutons du Hero si ce n'est pas parfait */
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+    }
+    
+    .hero-actions a {
+        width: 100%; /* Les boutons prennent toute la largeur sur mobile */
+    }
+    /* On affiche le bouton burger */
+    .menu-burger {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .menu-burger .bar {
+        width: 25px;
+        height: 2px;
+        background-color: var(--couleur-or); /* Les barres en doré premium */
+        transition: all 0.3s ease;
+    }
+
+    /* On cache le menu classique et on le prépare en version "tiroir" vertical */
+    .nav-links {
+        display: none; /* Caché par défaut */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%; /* Juste en dessous du header */
+        left: 0;
+        background-color: var(--couleur-noir);
+        padding: 20px 0;
+        border-bottom: 1px solid var(--couleur-or);
+    }
+
+    /* La classe qui sera ajoutée par le JavaScript pour afficher le menu */
+    .nav-links.active {
+        display: flex;
+    }
+
+    /* On centre les liens pour le style */
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    /* Sur tablette et mobile large : 2 colonnes */
+    .masonry-gallery {
+        column-count: 2;
+    }
+}
+/* ==========================================
+   GALERIE TYPE PINTEREST (Masonry)
+   ========================================== */
+.masonry-gallery {
+    /* La magie opère ici : on divise en 3 colonnes comme un journal */
+    column-count: 3;
+    column-gap: 20px;
+}
+
+.masonry-item {
+    /* Évite qu'une image soit coupée en deux entre deux colonnes */
+    break-inside: avoid; 
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.masonry-item img {
+    width: 100%;
+    display: block; /* Supprime le petit espace invisible sous les images */
+    transition: transform 0.5s ease;
+}
+
+/* L'effet "Hover premium" demandé [cite: 219] */
+.masonry-item:hover img {
+    transform: scale(1.08);
+    
+}
+
+/* ==========================================
+   TÉMOIGNAGES
+   ========================================== */
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background-color: var(--couleur-blanc);
+    padding: 30px;
+    border-left: 3px solid var(--couleur-or); /* Petite ligne dorée à gauche très chic */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+}
+
+.quote {
+    font-family: var(--font-titre); /* On utilise Playfair pour les citations, ça donne un côté magazine */
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.author {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--couleur-or);
+}
+
+@media screen and (max-width: 480px) {
+    /* Sur petit mobile : 1 seule colonne */
+    .masonry-gallery {
+        column-count: 1;
+    }
+}
