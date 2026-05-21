@@ -3,19 +3,19 @@
    ========================================== */
 :root {
     /* Couleurs Officielles AM&C */
-    --couleur-or: #D8B25A;       /* Le doré du logo */
-    --couleur-noir: #111111;     /* Noir profond */
+    --couleur-or: #D8B25A;       
+    --couleur-noir: #111111;     
     --couleur-blanc: #FFFFFF;
     --couleur-blanc-casse: #F7F4EF;
     
     /* Typographies */
     --font-titre: 'Playfair Display', serif;
-    --font-texte: 'Montserrat', sans-serif; /* Moderne et sans-serif comme demandé */
+    --font-texte: 'Montserrat', sans-serif; 
     
-    /* Espacements standardisés pour tout le groupe */
-    --spacing-sm: 1rem;
-    --spacing-md: 2rem;
-    --spacing-lg: 4rem;
+    /* ESPACEMENTS PREMIUM (Modifiés pour plus d'air) */
+    --spacing-sm: 1.5rem; /* 24px - Pour les petits espaces (ex: entre un titre et un paragraphe) */
+    --spacing-md: 3rem;   /* 48px - Pour les marges intérieures des cartes */
+    --spacing-lg: 6rem;   /* 96px - Espacement massif entre les grandes sections */
 }
 
 /* ==========================================
@@ -75,7 +75,7 @@ a {
    ========================================== */
 .main-header {
     background-color: var(--couleur-noir);
-    padding: 15px 0;
+    padding: 7px 0;
     /* Ces deux lignes permettent au menu de rester accroché en haut quand on défile */
     position: sticky;
     top: 0;
@@ -94,8 +94,8 @@ a {
 
 /* Taille du logo */
 .logo img {
-    height: 45px;
-    width: auto;
+    height: 70px;
+    width: 50px;
 }
 
 /* La liste de liens */
@@ -137,27 +137,42 @@ a {
    HERO SECTION (Noir & Or Minimaliste)
    ========================================== */
 .hero-minimalist {
-    /* Le dégradé subtil pour éviter un noir totalement plat */
+    position: relative;
     background: radial-gradient(circle at center, #1a1a1a 0%, var(--couleur-noir) 100%);
     color: var(--couleur-or);
-    
-    /* Hauteur immersive : 85% de la hauteur de l'écran */
-    min-height: 85vh; 
-    
-    /* Centrage parfait avec Flexbox */
+    min-height: 85vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     padding: var(--spacing-md);
+    overflow: hidden;
+}
+
+/* Vidéo de fond pour le hero */
+.hero-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
 }
 
 .hero-title {
     /* clamp(min, idéal, max) : Typographie fluide et responsive */
     font-size: clamp(2.5rem, 6vw, 5rem); 
     letter-spacing: 2px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem; /* Plus d'espace sous le titre */
     text-transform: uppercase;
     font-weight: 400; /* Un texte fin est souvent plus élégant qu'un gras massif */
 }
@@ -166,7 +181,7 @@ a {
     font-family: var(--font-texte);
     font-size: clamp(1rem, 2vw, 1.5rem);
     color: var(--couleur-blanc-casse); /* Blanc cassé pour adoucir le contraste et faciliter la lecture */
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 2.5rem; /* Plus d'espace sous le sous-titre */
     font-weight: 300;
     letter-spacing: 1px;
 }
@@ -174,7 +189,9 @@ a {
 /* Conteneur des boutons */
 .hero-actions {
     display: flex;
-    gap: 20px;
+    gap: 32px; /* Plus d'espace entre les boutons */
+    margin-top: 2.5rem; /* Ajoute de l'espace au-dessus des boutons */
+    margin-bottom: 2.5rem; /* Ajoute de l'espace en dessous des boutons */
     justify-content: center;
     flex-wrap: wrap; /* Permet aux boutons de passer à la ligne sur smartphone */
 }
@@ -214,14 +231,33 @@ a {
     letter-spacing: 2px;
 }
 
-/* Le petit détail chic : une ligne dorée sous le titre */
+/* Le petit détail chic : la ligne dorée sous le titre */
 .section-title::after {
     content: '';
     display: block;
     width: 60px;
     height: 2px;
     background-color: var(--couleur-or);
-    margin: 15px auto 0;
+    margin: 25px auto 0; /* Augmenté de 15px à 25px pour détacher la ligne du texte */
+}
+
+/* Les cartes de la section Univers */
+.univers-card {
+    background-color: var(--couleur-blanc);
+    border: 1px solid #E8DDD0;
+    padding: var(--spacing-md); /* Va maintenant utiliser les 48px définis plus haut */
+    text-align: center;
+    min-height: 180px; /* Légèrement agrandi pour compenser le nouveau padding */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+
+/* L'intérieur des cartes Événements */
+.event-content {
+    padding: 35px 25px; /* On ajoute plus d'air au-dessus et en dessous du texte */
 }
 
 /* La Grille CSS intelligente */
@@ -230,24 +266,6 @@ a {
     /* auto-fit : place autant de cartes que possible par ligne sans les écraser */
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 30px;
-}
-
-/* Le design des cartes */
-.univers-card {
-    background-color: var(--couleur-blanc);
-    border: 1px solid #E8DDD0; /* Le beige premium de la charte */
-    padding: var(--spacing-md);
-    text-align: center;
-    min-height: 150px;
-    
-    /* Centrage du texte à l'intérieur de la carte */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    /* Préparation pour l'animation */
-    transition: all 0.4s ease;
-    cursor: pointer;
 }
 
 .univers-card h3 {
@@ -518,12 +536,13 @@ a {
    RÈGLES RESPONSIVE (MOBILES & TABLETTES)
    ========================================== */
 @media screen and (max-width: 768px) {
-    /* 1. On réduit les marges globales pour les petits écrans */
+    /* 1. On divise les marges par deux pour les petits écrans */
     :root {
-        --spacing-lg: 2.5rem; /* Au lieu de 4rem */
-        --spacing-md: 1.5rem; /* Au lieu de 2rem */
+        --spacing-lg: 3rem; /* L'espace entre les sections passe de 96px à 48px */
+        --spacing-md: 1.5rem; /* Le padding des cartes passe de 48px à 24px */
     }
 
+    /* Suite de tes règles pour le menu burger, etc... */
     /* 2. On réduit légèrement la taille des événements pour qu'ils rentrent bien */
     .events-grid {
         grid-template-columns: 1fr; /* 1 seule carte par ligne sur mobile */
@@ -649,5 +668,348 @@ a {
     /* Sur petit mobile : 1 seule colonne */
     .masonry-gallery {
         column-count: 1;
+    }
+}
+/* ==========================================
+   PAGE ASSOCIATION : TIMELINE (Historique)
+   ========================================== */
+.history-timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 40px; /* Espace pour la ligne verticale */
+    border-left: 2px solid #E8DDD0; /* La ligne verticale beige */
+}
+
+.timeline-block {
+    position: relative;
+    margin-bottom: var(--spacing-md);
+}
+
+.timeline-block:last-child {
+    margin-bottom: 0;
+}
+
+/* Le point doré sur la ligne */
+.timeline-block::before {
+    content: '';
+    position: absolute;
+    left: -47px; /* On recule le point pour le centrer sur la bordure gauche */
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--couleur-or);
+    border-radius: 50%;
+    border: 3px solid var(--couleur-blanc-casse);
+}
+
+.timeline-year {
+    font-family: var(--font-titre);
+    font-size: 1.5rem;
+    color: var(--couleur-or);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.timeline-content-box h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--couleur-noir);
+}
+
+.timeline-content-box p {
+    color: #555;
+    line-height: 1.7;
+}
+
+/* ==========================================
+   PAGE ASSOCIATION : IMPACT
+   ========================================== */
+.impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 colonnes égales sur grand écran */
+    gap: var(--spacing-lg);
+    align-items: center; /* Centre verticalement le texte par rapport à l'image */
+}
+
+.impact-list {
+    list-style: none;
+    margin-top: 30px;
+}
+
+.impact-list li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+/* Flèche dorée stylisée pour les puces de la liste */
+.impact-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--couleur-or);
+    font-weight: bold;
+}
+
+/* Responsive pour la section Impact */
+@media screen and (max-width: 768px) {
+    .impact-grid {
+        grid-template-columns: 1fr; /* Passe sur 1 seule colonne sur mobile */
+    }
+    
+    .impact-image {
+        order: -1; /* Fait passer l'image au-dessus du texte sur mobile */
+    }
+}
+/* ==========================================
+   PAGE GALERIE : FILTRES
+   ========================================== */
+.gallery-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.filter-btn {
+    background-color: transparent;
+    border: 1px solid var(--couleur-or);
+    color: var(--couleur-noir);
+    padding: 8px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background-color: var(--couleur-or);
+    color: var(--couleur-noir);
+    font-weight: 600;
+}
+
+/* ==========================================
+   PAGE GALERIE : LIGHTBOX 
+   ========================================== */
+.lightbox-container {
+    display: none; /* Caché par défaut */
+    position: fixed;
+    z-index: 9999; /* Toujours au-dessus de tout, même du menu */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(17, 17, 17, 0.95); /* Noir AM&C très opaque */
+    align-items: center;
+    justify-content: center;
+}
+
+/* La classe ajoutée par JS pour afficher la Lightbox */
+.lightbox-container.active {
+    display: flex;
+}
+
+.lightbox-image {
+    max-width: 90%;
+    max-height: 90vh; /* 90% de la hauteur de l'écran */
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    animation: zoomIn 0.4s ease; /* Effet de zoom élégant à l'ouverture */
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: var(--couleur-or);
+    font-size: 50px;
+    font-weight: 300;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.lightbox-close:hover {
+    color: var(--couleur-blanc);
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+/* ==========================================
+   ANIMATION : FADE-UP DE LA GALERIE
+   ========================================== */
+
+/* 1. Définition de l'animation Keyframes */
+@keyframes fadeUpItem {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* L'image commence 30px plus bas */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* L'image arrive à sa place */
+    }
+}
+
+/* 2. On applique l'état initial (caché) et l'animation sur chaque item */
+.masonry-item {
+    opacity: 0; /* Caché au chargement */
+    animation-name: fadeUpItem;
+    animation-duration: 0.7s; /* Durée de l'apparition */
+    animation-timing-function: ease-out; /* Effet de décélération fluide */
+    animation-fill-mode: forwards; /* Reste visible à la fin de l'animation */
+}
+
+/* 3. Le secret : Le décalage (Staggering) */
+/* On ajoute manuellement un délai croissant pour les 6 premières images visibles au chargement */
+.masonry-item:nth-child(1) { animation-delay: 0.1s; }
+.masonry-item:nth-child(2) { animation-delay: 0.2s; }
+.masonry-item:nth-child(3) { animation-delay: 0.3s; }
+.masonry-item:nth-child(4) { animation-delay: 0.4s; }
+.masonry-item:nth-child(5) { animation-delay: 0.5s; }
+.masonry-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* Les images suivantes n'ont pas de délai pour ne pas alourdir la page si l'on scrolle vite */
+
+/* ==========================================
+   PAGE CONTACT : AGENCEMENT
+   ========================================== */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Asymétrie premium */
+    gap: var(--spacing-lg);
+    align-items: start;
+}
+
+.contact-info-block {
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-info-block h2 {
+    font-size: 2rem;
+    color: var(--couleur-noir);
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.contact-address, .contact-phones {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* ==========================================
+   FORMULAIRE PREMIUM
+   ========================================== */
+.premium-form {
+    background-color: var(--couleur-blanc);
+    padding: var(--spacing-md);
+    border: 1px solid #E8DDD0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.premium-form label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--couleur-or);
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* Style épuré et minimaliste pour les entrées de texte */
+.premium-form input[type="text"],
+.premium-form input[type="email"],
+.premium-form input[type="tel"],
+.premium-form textarea {
+    font-family: var(--font-texte);
+    padding: 12px;
+    font-size: 0.95rem;
+    border: 1px solid #E8DDD0;
+    background-color: var(--couleur-blanc-casse);
+    color: var(--couleur-noir);
+    transition: all 0.3s ease;
+}
+
+.premium-form input:focus,
+.premium-form textarea:focus {
+    outline: none;
+    border-color: var(--couleur-or);
+    background-color: var(--couleur-blanc);
+    box-shadow: 0 4px 12px rgba(216, 178, 90, 0.05);
+}
+
+/* ==========================================
+   BLOC CARTE GOOGLE MAPS & ÉDITORIAL [cite: 296-297]
+   ========================================== */
+.contact-map-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: 100%;
+}
+
+.map-box {
+    width: 100%;
+    height: 400px; /* Fixe la hauteur de la carte [cite: 296-297] */
+    border: 1px solid #E8DDD0;
+    filter: grayscale(1); /* Effet noir et blanc chic pour correspondre à la charte, redevient en couleur au survol */
+    transition: filter 0.5s ease;
+}
+
+.map-box:hover {
+    filter: grayscale(0);
+}
+
+.contact-editorial-box {
+    background-color: var(--couleur-noir);
+    color: var(--couleur-blanc-casse);
+    padding: 35px;
+    border-left: 3px solid var(--couleur-or);
+}
+
+.contact-editorial-box h3 {
+    color: var(--couleur-or);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.contact-editorial-box p {
+    font-size: 0.95rem;
+    color: #bbb;
+    line-height: 1.6;
+}
+
+/* ==========================================
+   RESPONSIVE CONTACT
+   ========================================== */
+@media screen and (max-width: 992px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr; /* Tout passe sur une seule colonne sur tablette/mobile */
+        gap: var(--spacing-md);
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr; /* Les champs email et téléphone s'empilent */
+        gap: 0;
     }
 }
