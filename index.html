@@ -828,7 +828,7 @@
       </div>
     </section>
 
-    <section style="padding-top:0;">
+    <section style="padding-top:0; padding-bottom:0;">
       <div class="container">
         <div class="galerie-cats" role="tablist" aria-label="Filtrer la galerie">
           <button class="galerie-cat-btn active" role="tab" onclick="filterGalerie('tous', this)">Tous</button>
@@ -839,8 +839,9 @@
           <button class="galerie-cat-btn" role="tab" onclick="filterGalerie('public', this)">Public</button>
           <button class="galerie-cat-btn" role="tab" onclick="filterGalerie('backstage', this)">Backstage</button>
         </div>
+      </div><!-- /container filtres -->
 
-        <div class="galerie-full-grid" id="galerieGrid">
+      <div class="galerie-full-grid" id="galerieGrid">
           <!-- La galerie sera générée dynamiquement à partir des images du dossier local -->
         </div>
 
@@ -930,7 +931,7 @@
 
           document.addEventListener('DOMContentLoaded', renderGallery);
         </script>
-      </div>
+      </div><!-- /galerie-full-grid -->
     </section>
 
     <footer>

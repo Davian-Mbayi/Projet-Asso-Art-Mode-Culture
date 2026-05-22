@@ -37,67 +37,48 @@ window.addEventListener('scroll', () => {
 });
 
 /* ════════════════════════════════════
-   LOGO 3D — TILT + MIRROR EFFECT
+   LOGO 3D — TILT pur sur l'image
 ════════════════════════════════════ */
 function initLogo3D() {
   const wrapper = document.querySelector('.hero-logo-3d-wrapper');
   if (!wrapper) return;
+  const img = wrapper.querySelector('img');
+  if (!img) return;
 
-  // Créer le reflet miroir dynamiquement
-  const logoImg = wrapper.querySelector('img');
-  if (logoImg && !wrapper.querySelector('.hero-logo-mirror')) {
-    const mirror = document.createElement('img');
-    mirror.src = logoImg.src;
-    mirror.alt = '';
-    mirror.className = 'hero-logo-mirror';
-    wrapper.appendChild(mirror);
-  }
+  // Supprimer tout miroir existant ou injecté
+  wrapper.querySelectorAll('.hero-logo-mirror').forEach(el => el.remove());
 
-  let animFrame;
-  let currentX = 0, currentY = 0;
-  let targetX = 0, targetY = 0;
+  let rafId;
+  let curX = 0, curY = 0;
+  let tgtX = 0, tgtY = 0;
 
   wrapper.addEventListener('mousemove', (e) => {
-    const rect = wrapper.getBoundingClientRect();
-    const cx = rect.left + rect.width / 2;
-    const cy = rect.top + rect.height / 2;
-    const dx = (e.clientX - cx) / (rect.width / 2);
-    const dy = (e.clientY - cy) / (rect.height / 2);
-
-    // Amplifier légèrement pour un effet prononcé mais pas excessif
-    targetX = dy * -18;  // tilt vertical
-    targetY = dx * 18;   // tilt horizontal
+    const r = wrapper.getBoundingClientRect();
+    const dx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
+    const dy = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
+    tgtX = dy * -22;
+    tgtY = dx *  22;
   });
 
   wrapper.addEventListener('mouseleave', () => {
-    targetX = 0;
-    targetY = 0;
+    tgtX = 0;
+    tgtY = 0;
   });
 
-  // Smooth interpolation
-  function animate() {
-    currentX += (targetX - currentX) * 0.12;
-    currentY += (targetY - currentY) * 0.12;
-
-    const scale = 1 + Math.abs(currentX + currentY) * 0.001;
-    wrapper.style.transform = `
-      perspective(400px)
-      rotateX(${currentX}deg)
-      rotateY(${currentY}deg)
-      scale3d(${scale}, ${scale}, ${scale})
-    `;
-
-    animFrame = requestAnimationFrame(animate);
+  function tick() {
+    curX += (tgtX - curX) * 0.1;
+    curY += (tgtY - curY) * 0.1;
+    img.style.transform =
+      `perspective(600px) rotateX(${curX}deg) rotateY(${curY}deg)`;
+    rafId = requestAnimationFrame(tick);
   }
-  animate();
+  tick();
 
-  // Click pulse effect
+  // Pulse au clic
   wrapper.addEventListener('click', () => {
-    wrapper.style.transition = 'transform 0.15s ease';
-    wrapper.style.transform = 'perspective(400px) scale3d(0.92, 0.92, 0.92)';
-    setTimeout(() => {
-      wrapper.style.transition = '';
-    }, 150);
+    img.style.transition = 'transform 0.12s ease';
+    img.style.transform = 'perspective(600px) scale(0.93)';
+    setTimeout(() => { img.style.transition = ''; }, 130);
   });
 }
 
@@ -199,23 +180,24 @@ function selectMontant(btn, val) {
 function openLightbox(el) {
   const lightbox = document.getElementById('lightbox');
   if (!lightbox) return;
-  // Clear existing content then add close button + image
   lightbox.innerHTML = '';
 
+  // Bouton fermer
   const closeBtn = document.createElement('button');
-  closeBtn.style.cssText = 'position:absolute; top:24px; right:32px; color:var(--gold); background:none; border:none; font-size:2rem; cursor:pointer; z-index:1001;';
+  closeBtn.style.cssText = 'position:fixed; top:20px; right:28px; color:#C8A96B; background:rgba(0,0,0,0.6); border:1px solid rgba(200,169,107,0.3); border-radius:50%; width:44px; height:44px; font-size:1.5rem; cursor:pointer; z-index:10001; display:flex; align-items:center; justify-content:center; line-height:1; backdrop-filter:blur(8px);';
   closeBtn.setAttribute('aria-label', 'Fermer');
   closeBtn.innerHTML = '&times;';
-  closeBtn.onclick = function(e) { e.stopPropagation(); closeLightbox(); };
+  closeBtn.onclick = (e) => { e.stopPropagation(); closeLightbox(); };
 
   const img = document.createElement('img');
   img.className = 'lightbox-img';
-  // Try to find an <img> inside the clicked element, or use element if it's an img
-  const source = el && (el.tagName === 'IMG' ? el : el.querySelector && el.querySelector('img'));
+
+  // Récupérer la source image
+  const source = el && (el.tagName === 'IMG' ? el : el.querySelector('img'));
   if (source && source.src) img.src = source.src;
   else if (el && el.dataset && el.dataset.src) img.src = el.dataset.src;
   img.alt = (source && source.alt) ? source.alt : '';
-  img.onclick = function(e) { e.stopPropagation(); };
+  img.onclick = (e) => e.stopPropagation(); // clic sur l'image ne ferme pas
 
   lightbox.appendChild(closeBtn);
   lightbox.appendChild(img);
@@ -223,7 +205,8 @@ function openLightbox(el) {
   document.body.style.overflow = 'hidden';
 }
 function closeLightbox() {
-  document.getElementById('lightbox').style.display = 'none';
+  const lb = document.getElementById('lightbox');
+  if (lb) lb.style.display = 'none';
   document.body.style.overflow = '';
 }
 

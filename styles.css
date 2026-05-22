@@ -247,53 +247,43 @@ nav.scrolled {
   display: inline-block;
   position: relative;
   cursor: pointer;
-  transform-style: preserve-3d;
-  transition: transform 0.1s ease-out;
+  /* PAS de transform ici — le wrapper est fixe */
 }
+/* Halo doré — pseudo-élément fixe, ne bouge jamais */
+.hero-logo-3d-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -24px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,169,107,0.18) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity .5s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-logo-3d-wrapper:hover::before { opacity: 1; }
+
+/* L'image reçoit le tilt via JS */
 .hero-logo-3d-wrapper img {
   width: 100%;
   display: block;
   position: relative;
   z-index: 2;
+  will-change: transform;
   filter:
-    drop-shadow(0 0 20px rgba(200,169,107,0.25))
-    drop-shadow(0 4px 12px rgba(0,0,0,0.5));
-  transition: filter .3s;
+    drop-shadow(0 0 18px rgba(200,169,107,0.2))
+    drop-shadow(0 6px 16px rgba(0,0,0,0.55));
+  transition: filter .35s ease;
 }
-/* Effet miroir — reflet sous le logo */
-.hero-logo-mirror {
-  position: absolute;
-  bottom: -85%;
-  left: 0; right: 0;
-  width: 100%;
-  transform: scaleY(-1);
-  opacity: 0;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 70%);
-  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 70%);
-  filter: blur(1px) brightness(0.6);
-  transition: opacity .4s;
-  pointer-events: none;
-}
-.hero-logo-3d-wrapper:hover .hero-logo-mirror { opacity: 1; }
-
-/* Halo dorée autour du logo au hover */
-.hero-logo-3d-wrapper::after {
-  content: '';
-  position: absolute;
-  inset: -20px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(200,169,107,0.12) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity .4s;
-  z-index: 0;
-  pointer-events: none;
-}
-.hero-logo-3d-wrapper:hover::after { opacity: 1; }
 .hero-logo-3d-wrapper:hover img {
   filter:
-    drop-shadow(0 0 30px rgba(200,169,107,0.45))
-    drop-shadow(0 8px 20px rgba(0,0,0,0.6));
+    drop-shadow(0 0 36px rgba(200,169,107,0.6))
+    drop-shadow(0 12px 28px rgba(0,0,0,0.7));
 }
+/* Supprimer tout ::after résiduel */
+.hero-logo-3d-wrapper::after { display: none !important; }
+/* Pas de miroir fantôme */
+.hero-logo-mirror { display: none !important; }
 
 .hero-label {
   color: var(--gold); font-size: 0.68rem; font-weight: 600; letter-spacing: 0.3em;
@@ -540,7 +530,7 @@ section { padding: 100px 0; }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 160px;
-  gap: 4px;
+  gap: 0px;
   margin-top: 56px;
 }
 .galerie-item {
@@ -569,22 +559,53 @@ section { padding: 100px 0; }
 .galerie-full-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  margin-top: 32px;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 .galerie-full-item {
-  background: #0f0f0f; overflow: hidden; position: relative; display:flex; align-items:center; justify-content:center; cursor:pointer;
-  min-height: 160px; height: 220px;
+  background: #0f0f0f;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+  margin: 0;
+  padding: 0;
 }
-.galerie-full-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.galerie-full-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .45s ease, filter .3s;
+}
+.galerie-full-item:hover img { transform: scale(1.06); filter: brightness(1.12); }
+.galerie-full-item:nth-child(5n) { grid-column: span 2; aspect-ratio: 2/1; }
+.galerie-full-item:nth-child(7n) { aspect-ratio: 3/4; }
 
 /* Lightbox image */
 .lightbox-img {
-  max-width: 92vw; max-height: 86vh; width: auto; height: auto; display: block; margin: 0 auto; box-shadow: 0 40px 80px rgba(0,0,0,0.7); border-radius: 4px;
+  max-width: 90vw;
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  object-fit: contain;
+  box-shadow: 0 40px 80px rgba(0,0,0,0.8);
+  border-radius: 3px;
 }
 
 #lightbox {
-  display: none; align-items: center; justify-content: center; position: fixed; inset: 0; z-index: 9999; background: rgba(0,0,0,0.92);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.95);
+  cursor: zoom-out;
 }
 #lightbox button { color: var(--gold); }
 
@@ -837,21 +858,6 @@ footer {
   text-transform: uppercase; cursor: pointer; font-family: 'Montserrat', sans-serif;
   transition: all .3s;
 }
-.galerie-cat-btn.active, .galerie-cat-btn:hover { border-color: var(--gold); color: var(--gold); }
-.galerie-full-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 4px; }
-.galerie-full-item {
-  aspect-ratio: 1; background: linear-gradient(135deg, #1a1510, #111);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
-  color: rgba(200,169,107,0.16); cursor: pointer; transition: all .3s; position: relative; overflow: hidden;
-}
-.galerie-full-item:hover { filter: brightness(1.2); }
-.galerie-full-item:nth-child(3n) { aspect-ratio: 1/1.5; }
-.galerie-full-item:nth-child(5n) { grid-column: span 2; aspect-ratio: 2/1; }
-
-/* ════════════════════════════════════
-   ANIMATIONS
-════════════════════════════════════ */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
