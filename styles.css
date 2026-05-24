@@ -247,9 +247,7 @@ nav.scrolled {
   display: inline-block;
   position: relative;
   cursor: pointer;
-  /* PAS de transform ici — le wrapper est fixe */
 }
-/* Halo doré — pseudo-élément fixe, ne bouge jamais */
 .hero-logo-3d-wrapper::before {
   content: '';
   position: absolute;
@@ -262,8 +260,6 @@ nav.scrolled {
   z-index: 0;
 }
 .hero-logo-3d-wrapper:hover::before { opacity: 1; }
-
-/* L'image reçoit le tilt via JS */
 .hero-logo-3d-wrapper img {
   width: 100%;
   display: block;
@@ -280,9 +276,7 @@ nav.scrolled {
     drop-shadow(0 0 36px rgba(200,169,107,0.6))
     drop-shadow(0 12px 28px rgba(0,0,0,0.7));
 }
-/* Supprimer tout ::after résiduel */
 .hero-logo-3d-wrapper::after { display: none !important; }
-/* Pas de miroir fantôme */
 .hero-logo-mirror { display: none !important; }
 
 .hero-label {
@@ -495,13 +489,22 @@ section { padding: 100px 0; }
   box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(200,169,107,0.15);
 }
 .event-img {
-  aspect-ratio: 16/10; background: linear-gradient(135deg, #1a1510 0%, #0f0f0f 100%);
+  aspect-ratio: 16/10;
+  background: linear-gradient(135deg, #1a1510 0%, #0f0f0f 100%);
   display: flex; align-items: center; justify-content: center;
   position: relative; overflow: hidden;
 }
-.event-img-overlay {
+.event-img img {
   position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(200,169,107,0.1) 0%, transparent 50%);
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .5s ease;
+  z-index: 0;
+}
+.event-card:hover .event-img img { transform: scale(1.06); }
+.event-img-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
 }
 .event-img-text {
   font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300;
@@ -530,7 +533,7 @@ section { padding: 100px 0; }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: 160px;
-  gap: 0px;
+  gap: 3px;
   margin-top: 56px;
 }
 .galerie-item {
@@ -538,7 +541,13 @@ section { padding: 100px 0; }
   overflow: hidden; position: relative; cursor: pointer;
   transition: all .4s;
 }
-.galerie-item:hover { filter: brightness(1.15); }
+.galerie-item img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+  transition: transform .45s ease;
+}
+.galerie-item:hover img { transform: scale(1.07); }
+.galerie-item:hover { filter: brightness(1.12); }
 .galerie-item:hover .galerie-overlay { opacity: 1; }
 .galerie-item.tall { grid-row: span 2; }
 .galerie-item.wide { grid-column: span 2; }
@@ -551,7 +560,7 @@ section { padding: 100px 0; }
 }
 .galerie-overlay {
   position: absolute; inset: 0; opacity: 0; transition: opacity .3s;
-  background: rgba(200,169,107,0.08);
+  background: rgba(0,0,0,0.25);
   display: flex; align-items: center; justify-content: center;
 }
 
@@ -562,7 +571,7 @@ section { padding: 100px 0; }
   gap: 0;
   margin: 0;
   padding: 0;
-  width: 100%;
+  line-height: 0; /* tue les micro-espaces inline */
 }
 .galerie-full-item {
   background: #0f0f0f;
@@ -570,6 +579,8 @@ section { padding: 100px 0; }
   position: relative;
   cursor: pointer;
   aspect-ratio: 1 / 1;
+  line-height: 0;
+  display: block;
   margin: 0;
   padding: 0;
 }
@@ -578,11 +589,13 @@ section { padding: 100px 0; }
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform .45s ease, filter .3s;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  vertical-align: bottom; /* supprime le micro-espace sous les images */
+  transition: transform .45s ease;
 }
-.galerie-full-item:hover img { transform: scale(1.06); filter: brightness(1.12); }
-.galerie-full-item:nth-child(5n) { grid-column: span 2; aspect-ratio: 2/1; }
-.galerie-full-item:nth-child(7n) { aspect-ratio: 3/4; }
+.galerie-full-item:hover img { transform: scale(1.06); }
 
 /* Lightbox image */
 .lightbox-img {
@@ -590,10 +603,10 @@ section { padding: 100px 0; }
   max-height: 88vh;
   width: auto;
   height: auto;
+  object-fit: contain;
   display: block;
   margin: 0 auto;
-  object-fit: contain;
-  box-shadow: 0 40px 80px rgba(0,0,0,0.8);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.8);
   border-radius: 3px;
 }
 
@@ -604,7 +617,7 @@ section { padding: 100px 0; }
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: rgba(0,0,0,0.95);
+  background: rgba(0,0,0,0.94);
   cursor: zoom-out;
 }
 #lightbox button { color: var(--gold); }
@@ -717,7 +730,7 @@ footer {
 ════════════════════════════════════ */
 .events-page-hero { padding: 160px 0 60px; text-align: center; }
 .filter-bar {
-  display: flex; gap: 4px; margin: 0 0 56px;
+  display: flex; gap: 0; margin: 0 0 56px;
   border-bottom: 1px solid var(--glass-border); padding-bottom: 0;
 }
 .filter-btn {
@@ -851,13 +864,21 @@ footer {
    PAGE GALERIE FULL
 ════════════════════════════════════ */
 .galerie-hero { padding: 160px 0 60px; text-align: center; }
-.galerie-cats { display: flex; gap: 4px; flex-wrap: wrap; margin: 0 0 48px; }
+.galerie-cats { display: flex; gap: 0; flex-wrap: wrap; margin: 0 0 48px; }
 .galerie-cat-btn {
   padding: 10px 22px; background: none; border: 1px solid var(--glass-border);
   color: var(--text-muted); font-size: 0.68rem; letter-spacing: 0.12em;
   text-transform: uppercase; cursor: pointer; font-family: 'Montserrat', sans-serif;
   transition: all .3s;
 }
+.galerie-cat-btn.active, .galerie-cat-btn:hover { border-color: var(--gold); color: var(--gold); }
+/* variations de taille pour rythme visuel */
+.galerie-full-item:nth-child(5n) { grid-column: span 2; aspect-ratio: 2/1; }
+.galerie-full-item:nth-child(7n) { aspect-ratio: 3/4; }
+
+/* ════════════════════════════════════
+   ANIMATIONS
+════════════════════════════════════ */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -915,3 +936,18 @@ footer {
   .montant-custom { grid-column: span 2; }
   .liquid-orb { display: none; }
 }
+/* ── GALERIE FULL — overlay zoom au hover ── */
+.galerie-full-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.35);
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+  z-index: 2;
+}
+.galerie-full-item:hover .galerie-full-overlay { opacity: 1; }
+.galerie-full-item { cursor: pointer; }

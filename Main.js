@@ -45,36 +45,25 @@ function initLogo3D() {
   const img = wrapper.querySelector('img');
   if (!img) return;
 
-  // Supprimer tout miroir existant ou injecté
+  // Supprimer tout miroir existant
   wrapper.querySelectorAll('.hero-logo-mirror').forEach(el => el.remove());
 
-  let rafId;
-  let curX = 0, curY = 0;
-  let tgtX = 0, tgtY = 0;
+  let curX = 0, curY = 0, tgtX = 0, tgtY = 0;
 
   wrapper.addEventListener('mousemove', (e) => {
     const r = wrapper.getBoundingClientRect();
-    const dx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
-    const dy = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
-    tgtX = dy * -22;
-    tgtY = dx *  22;
+    tgtX = ((e.clientY - r.top  - r.height / 2) / (r.height / 2)) * -22;
+    tgtY = ((e.clientX - r.left - r.width  / 2) / (r.width  / 2)) *  22;
   });
+  wrapper.addEventListener('mouseleave', () => { tgtX = 0; tgtY = 0; });
 
-  wrapper.addEventListener('mouseleave', () => {
-    tgtX = 0;
-    tgtY = 0;
-  });
-
-  function tick() {
+  (function tick() {
     curX += (tgtX - curX) * 0.1;
     curY += (tgtY - curY) * 0.1;
-    img.style.transform =
-      `perspective(600px) rotateX(${curX}deg) rotateY(${curY}deg)`;
-    rafId = requestAnimationFrame(tick);
-  }
-  tick();
+    img.style.transform = `perspective(600px) rotateX(${curX}deg) rotateY(${curY}deg)`;
+    requestAnimationFrame(tick);
+  })();
 
-  // Pulse au clic
   wrapper.addEventListener('click', () => {
     img.style.transition = 'transform 0.12s ease';
     img.style.transform = 'perspective(600px) scale(0.93)';
@@ -182,22 +171,23 @@ function openLightbox(el) {
   if (!lightbox) return;
   lightbox.innerHTML = '';
 
-  // Bouton fermer
+  // Bouton fermer — position fixed pour rester en haut à droite quoi qu'il arrive
   const closeBtn = document.createElement('button');
-  closeBtn.style.cssText = 'position:fixed; top:20px; right:28px; color:#C8A96B; background:rgba(0,0,0,0.6); border:1px solid rgba(200,169,107,0.3); border-radius:50%; width:44px; height:44px; font-size:1.5rem; cursor:pointer; z-index:10001; display:flex; align-items:center; justify-content:center; line-height:1; backdrop-filter:blur(8px);';
+  closeBtn.style.cssText = 'position:fixed; top:20px; right:24px; color:#C8A96B; background:rgba(0,0,0,0.6); border:1px solid rgba(200,169,107,0.4); border-radius:50%; width:44px; height:44px; font-size:1.4rem; line-height:1; cursor:pointer; z-index:10001; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(8px); transition: background .2s;';
   closeBtn.setAttribute('aria-label', 'Fermer');
   closeBtn.innerHTML = '&times;';
-  closeBtn.onclick = (e) => { e.stopPropagation(); closeLightbox(); };
+  closeBtn.onmouseenter = () => closeBtn.style.background = 'rgba(200,169,107,0.25)';
+  closeBtn.onmouseleave = () => closeBtn.style.background = 'rgba(0,0,0,0.6)';
+  closeBtn.onclick = function(e) { e.stopPropagation(); closeLightbox(); };
 
+  // Image en plein écran
   const img = document.createElement('img');
   img.className = 'lightbox-img';
-
-  // Récupérer la source image
-  const source = el && (el.tagName === 'IMG' ? el : el.querySelector('img'));
+  const source = el && (el.tagName === 'IMG' ? el : el.querySelector && el.querySelector('img'));
   if (source && source.src) img.src = source.src;
   else if (el && el.dataset && el.dataset.src) img.src = el.dataset.src;
   img.alt = (source && source.alt) ? source.alt : '';
-  img.onclick = (e) => e.stopPropagation(); // clic sur l'image ne ferme pas
+  img.onclick = function(e) { e.stopPropagation(); }; // clic sur l'image ne ferme pas
 
   lightbox.appendChild(closeBtn);
   lightbox.appendChild(img);
@@ -306,3 +296,109 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+/* ════════════════════════════════════
+   ADHÉSIONS — Stockage + Export CSV
+════════════════════════════════════ */
+
+// Clé localStorage pour stocker tous les adhérents
+const ADHERENTS_KEY = 'amc_adherents';
+
+function getadherents() {
+  try { return JSON.parse(localStorage.getItem(ADHERENTS_KEY) || '[]'); }
+  catch { return []; }
+}
+
+function saveAdherent(data) {
+  const list = getadherents();
+  list.push(data);
+  localStorage.setItem(ADHERENTS_KEY, JSON.stringify(list));
+}
+
+function submitAdhesion() {
+  const nom    = document.getElementById('nom')?.value?.trim();
+  const email  = document.getElementById('email')?.value?.trim();
+  const profil = document.getElementById('profil')?.value;
+  const tel    = document.getElementById('tel')?.value?.trim();
+  const ville  = document.getElementById('ville')?.value?.trim();
+  const dob    = document.getElementById('dateNaissance')?.value;
+  const msg    = document.getElementById('message')?.value?.trim();
+  const rgpd   = document.getElementById('rgpd')?.checked;
+
+  if (!nom)    { alert('Merci de renseigner votre nom.'); return; }
+  if (!email)  { alert('Merci de renseigner votre email.'); return; }
+  if (!profil) { alert('Merci de choisir votre profil.'); return; }
+  if (!rgpd)   { alert('Merci d\'accepter la politique de confidentialité.'); return; }
+
+  const adherent = {
+    id: Date.now(),
+    dateInscription: new Date().toLocaleDateString('fr-FR'),
+    nom, email, tel, ville, dateNaissance: dob,
+    profil, message: msg,
+    statut: 'En attente de paiement'
+  };
+
+  // 1. Sauvegarder localement
+  saveAdherent(adherent);
+
+  // 2. Ouvrir un email pré-rempli vers l'asso
+  const subject = encodeURIComponent(`Nouvelle adhésion AMC — ${nom} (${profil})`);
+  const body = encodeURIComponent(
+    `Nouvelle demande d'adhésion reçue :\n\n` +
+    `Nom : ${nom}\n` +
+    `Email : ${email}\n` +
+    `Téléphone : ${tel || 'Non renseigné'}\n` +
+    `Ville : ${ville || 'Non renseignée'}\n` +
+    `Date de naissance : ${dob || 'Non renseignée'}\n` +
+    `Profil : ${profil}\n` +
+    `Date d'inscription : ${adherent.dateInscription}\n\n` +
+    `Message :\n${msg || 'Aucun message'}\n\n` +
+    `---\nCotisation annuelle : 30 €\nStatut : En attente de paiement`
+  );
+  window.location.href = `mailto:artmodeculture@gmail.com?subject=${subject}&body=${body}`;
+
+  // 3. Afficher confirmation et rediriger vers paiement
+  document.getElementById('adhesionForm').style.display = 'none';
+  document.getElementById('adhesionSuccess').style.display = 'block';
+
+  // Après 3 secondes, proposer de passer au paiement
+  setTimeout(() => { navigate('paiement'); }, 3500);
+}
+
+/* Export CSV de tous les adhérents */
+function exportCSV() {
+  const list = getadherents();
+  if (!list.length) { alert('Aucun adhérent enregistré pour le moment.'); return; }
+
+  const headers = ['ID', 'Date inscription', 'Nom', 'Email', 'Téléphone', 'Ville', 'Date naissance', 'Profil', 'Statut', 'Message'];
+  const rows = list.map(a => [
+    a.id, a.dateInscription, a.nom, a.email,
+    a.tel || '', a.ville || '', a.dateNaissance || '',
+    a.profil, a.statut, (a.message || '').replace(/\n/g, ' ')
+  ]);
+
+  const csv = [headers, ...rows]
+    .map(r => r.map(v => `"${String(v).replace(/"/g, '""')}"`).join(';'))
+    .join('\n');
+
+  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url;
+  a.download = `adherents_AMC_${new Date().toISOString().slice(0,10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* ════════════════════════════════════
+   PAIEMENT — Placeholder handler
+════════════════════════════════════ */
+function handlePayment() {
+  const nom   = document.getElementById('pay-nom')?.value?.trim();
+  const email = document.getElementById('pay-email')?.value?.trim();
+  if (!nom || !email) {
+    alert('Merci de renseigner votre nom et email avant de procéder au paiement.');
+    return;
+  }
+  // TODO : remplacer par l'intégration réelle (Stripe, PayPal, HelloAsso...)
+  alert(`Merci ${nom} !\n\nLe système de paiement en ligne sera disponible très prochainement.\n\nEn attendant, vous pouvez régler par virement ou chèque à l'ordre d'Art Mode & Culture.\n\nContactez-nous : artmodeculture@gmail.com`);
+}
