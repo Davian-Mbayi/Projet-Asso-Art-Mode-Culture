@@ -1,11 +1,6 @@
-/* ═══════════════════════════════════════════════════════
-   ART MODE & CULTURE — MAIN.JS
-   Version 2.0 — Logo 3D tilt + Liquid interactions
-═══════════════════════════════════════════════════════ */
+// Script principal pour l'interactivité du site
 
-/* ════════════════════════════════════
-   NAVIGATION
-════════════════════════════════════ */
+// NAVIGATION
 function navigate(page) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   const target = document.getElementById('page-' + page);
@@ -19,9 +14,7 @@ function navigate(page) {
   observeReveal();
 }
 
-/* ════════════════════════════════════
-   MOBILE MENU
-════════════════════════════════════ */
+// MOBILE MENU
 function openMobile() {
   document.getElementById('mobileMenu').classList.add('open');
 }
@@ -29,23 +22,18 @@ function closeMobile() {
   document.getElementById('mobileMenu').classList.remove('open');
 }
 
-/* ════════════════════════════════════
-   SCROLL — NAV STYLE
-════════════════════════════════════ */
+// SCROLL — NAV STYLE
 window.addEventListener('scroll', () => {
   document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 60);
 });
 
-/* ════════════════════════════════════
-   LOGO 3D — TILT pur sur l'image
-════════════════════════════════════ */
+// LOGO 3D — TILT pur sur l'image
 function initLogo3D() {
   const wrapper = document.querySelector('.hero-logo-3d-wrapper');
   if (!wrapper) return;
   const img = wrapper.querySelector('img');
   if (!img) return;
 
-  // Supprimer tout miroir existant
   wrapper.querySelectorAll('.hero-logo-mirror').forEach(el => el.remove());
 
   let curX = 0, curY = 0, tgtX = 0, tgtY = 0;
@@ -71,9 +59,7 @@ function initLogo3D() {
   });
 }
 
-/* ════════════════════════════════════
-   LIQUID GLASS — Parallax orbs
-════════════════════════════════════ */
+// LIQUID GLASS — Parallax orbs
 function initLiquidBg() {
   const orbs = document.querySelectorAll('.liquid-orb');
   if (!orbs.length) return;
@@ -91,9 +77,7 @@ function initLiquidBg() {
   });
 }
 
-/* ════════════════════════════════════
-   REVEAL ON SCROLL
-════════════════════════════════════ */
+// REVEAL ON SCROLL
 function observeReveal() {
   setTimeout(() => {
     const els = document.querySelectorAll('.reveal');
@@ -111,9 +95,7 @@ function observeReveal() {
   }, 50);
 }
 
-/* ════════════════════════════════════
-   COUNTERS ANIMATION
-════════════════════════════════════ */
+// COUNTERS ANIMATION
 function startCounters() {
   document.querySelectorAll('.counter').forEach(el => {
     const target = parseInt(el.dataset.target);
@@ -138,9 +120,7 @@ const counterObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.3 });
 
-/* ════════════════════════════════════
-   EVENTS FILTER
-════════════════════════════════════ */
+// EVENTS FILTER
 function filterEvents(year, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
@@ -150,9 +130,7 @@ function filterEvents(year, btn) {
   });
 }
 
-/* ════════════════════════════════════
-   DON — Sélection montant
-════════════════════════════════════ */
+// DON — Sélection montant
 let selectedMontant = 50;
 
 function selectMontant(btn, val) {
@@ -163,15 +141,12 @@ function selectMontant(btn, val) {
   if (donBtn) donBtn.textContent = 'Faire un don de ' + val + ' €';
 }
 
-/* ════════════════════════════════════
-   LIGHTBOX
-════════════════════════════════════ */
+// LIGHTBOX
 function openLightbox(el) {
   const lightbox = document.getElementById('lightbox');
   if (!lightbox) return;
   lightbox.innerHTML = '';
 
-  // Bouton fermer — position fixed pour rester en haut à droite quoi qu'il arrive
   const closeBtn = document.createElement('button');
   closeBtn.style.cssText = 'position:fixed; top:20px; right:24px; color:#C8A96B; background:rgba(0,0,0,0.6); border:1px solid rgba(200,169,107,0.4); border-radius:50%; width:44px; height:44px; font-size:1.4rem; line-height:1; cursor:pointer; z-index:10001; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(8px); transition: background .2s;';
   closeBtn.setAttribute('aria-label', 'Fermer');
@@ -180,7 +155,6 @@ function openLightbox(el) {
   closeBtn.onmouseleave = () => closeBtn.style.background = 'rgba(0,0,0,0.6)';
   closeBtn.onclick = function(e) { e.stopPropagation(); closeLightbox(); };
 
-  // Image en plein écran
   const img = document.createElement('img');
   img.className = 'lightbox-img';
   const source = el && (el.tagName === 'IMG' ? el : el.querySelector && el.querySelector('img'));
@@ -205,9 +179,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape') closeLightbox();
 });
 
-/* ════════════════════════════════════
-   BUTTON RIPPLE EFFECT
-════════════════════════════════════ */
+// BUTTON RIPPLE EFFECT
 function initButtonRipples() {
   document.querySelectorAll('.btn-primary, .btn-outline').forEach(btn => {
     btn.addEventListener('click', function(e) {
@@ -235,7 +207,6 @@ function initButtonRipples() {
     });
   });
 
-  // Ajouter le keyframe si pas encore présent
   if (!document.querySelector('#rippleStyle')) {
     const style = document.createElement('style');
     style.id = 'rippleStyle';
@@ -248,9 +219,7 @@ function initButtonRipples() {
   }
 }
 
-/* ════════════════════════════════════
-   GALERIE — CATEGORIES FILTER
-════════════════════════════════════ */
+// GALERIE — CATEGORIES FILTER
 function filterGalerie(cat, btn) {
   document.querySelectorAll('.galerie-cat-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
@@ -271,20 +240,16 @@ function filterGalerie(cat, btn) {
   });
 }
 
-/* ════════════════════════════════════
-   INIT
-════════════════════════════════════ */
+// INIT
 document.addEventListener('DOMContentLoaded', () => {
   observeReveal();
   initLogo3D();
   initLiquidBg();
   initButtonRipples();
 
-  // Counters observer
   const chiffresEl = document.querySelector('.chiffres-grid');
   if (chiffresEl) counterObs.observe(chiffresEl);
 
-  // Custom montant input
   const customInput = document.getElementById('customMontant');
   if (customInput) {
     customInput.addEventListener('input', function() {
@@ -296,9 +261,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-/* ════════════════════════════════════
-   ADHÉSIONS — Stockage + Export CSV
-════════════════════════════════════ */
+// ADHÉSIONS — Stockage + Export CSV
 
 // Clé localStorage pour stocker tous les adhérents
 const ADHERENTS_KEY = 'amc_adherents';
@@ -337,10 +300,8 @@ function submitAdhesion() {
     statut: 'En attente de paiement'
   };
 
-  // 1. Sauvegarder localement
   saveAdherent(adherent);
 
-  // 2. Ouvrir un email pré-rempli vers l'asso
   const subject = encodeURIComponent(`Nouvelle adhésion AMC — ${nom} (${profil})`);
   const body = encodeURIComponent(
     `Nouvelle demande d'adhésion reçue :\n\n` +
@@ -356,11 +317,9 @@ function submitAdhesion() {
   );
   window.location.href = `mailto:artmodeculture@gmail.com?subject=${subject}&body=${body}`;
 
-  // 3. Afficher confirmation et rediriger vers paiement
   document.getElementById('adhesionForm').style.display = 'none';
   document.getElementById('adhesionSuccess').style.display = 'block';
 
-  // Après 3 secondes, proposer de passer au paiement
   setTimeout(() => { navigate('paiement'); }, 3500);
 }
 
@@ -389,9 +348,7 @@ function exportCSV() {
   URL.revokeObjectURL(url);
 }
 
-/* ════════════════════════════════════
-   PAIEMENT — Placeholder handler
-════════════════════════════════════ */
+// PAIEMENT — Placeholder handler
 function handlePayment() {
   const nom   = document.getElementById('pay-nom')?.value?.trim();
   const email = document.getElementById('pay-email')?.value?.trim();
@@ -399,6 +356,5 @@ function handlePayment() {
     alert('Merci de renseigner votre nom et email avant de procéder au paiement.');
     return;
   }
-  // TODO : remplacer par l'intégration réelle (Stripe, PayPal, HelloAsso...)
   alert(`Merci ${nom} !\n\nLe système de paiement en ligne sera disponible très prochainement.\n\nEn attendant, vous pouvez régler par virement ou chèque à l'ordre d'Art Mode & Culture.\n\nContactez-nous : artmodeculture@gmail.com`);
 }

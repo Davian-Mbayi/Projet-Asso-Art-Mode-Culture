@@ -7,28 +7,20 @@
   <meta name="keywords" content="art, mode, culture, Lille, association, événements, galerie" />
   <title>Art Mode & Culture — Association Culturelle à Lille</title>
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
-
-  <!-- Feuille de styles principale -->
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ════════════════════════════════════
-       LIQUID GLASS BACKGROUND — orbes animées
-  ════════════════════════════════════ -->
+  <!-- Arrière-plan animé -->
   <div class="liquid-bg" aria-hidden="true">
     <div class="liquid-orb"></div>
     <div class="liquid-orb"></div>
     <div class="liquid-orb"></div>
   </div>
 
-  <!-- ════════════════════════════════════
-       NAVIGATION
-  ════════════════════════════════════ -->
   <nav id="mainNav">
     <div class="nav-logo" onclick="navigate('accueil')" aria-label="Retour à l'accueil">
       <img src="logo.png" alt="Art Mode &amp; Culture" />
@@ -53,9 +45,6 @@
     </div>
   </nav>
 
-  <!-- ════════════════════════════════════
-       MENU MOBILE
-  ════════════════════════════════════ -->
   <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu navigation">
     <button class="mobile-close" onclick="closeMobile()" aria-label="Fermer le menu">&times;</button>
     <a onclick="navigate('accueil');closeMobile()">Accueil</a>
@@ -68,20 +57,13 @@
     <a onclick="navigate('contact');closeMobile()">Contact</a>
   </div>
 
-  <!-- ════════════════════════════════════
-       LIGHTBOX
-  ════════════════════════════════════ -->
   <div id="lightbox" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.92); align-items:center; justify-content:center;" onclick="closeLightbox()">
     <button style="position:absolute; top:24px; right:32px; color:var(--gold); background:none; border:none; font-size:2rem; cursor:pointer;" aria-label="Fermer">&times;</button>
   </div>
 
 
-  <!-- ╔══════════════════════════════════╗
-       ║  PAGE — ACCUEIL                  ║
-       ╚══════════════════════════════════╝ -->
   <div class="page active" id="page-accueil">
 
-    <!-- HERO -->
     <section class="hero">
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="hero-grain" aria-hidden="true"></div>
@@ -91,11 +73,9 @@
       <div class="hero-line-right" aria-hidden="true"></div>
 
       <div class="hero-content">
-        <!-- LOGO 3D -->
-        <div class="hero-logo">
+          <div class="hero-logo">
           <div class="hero-logo-3d-wrapper">
             <img src="logo.png" alt="Art Mode &amp; Culture — Logo" />
-            <!-- Le reflet miroir est injecté dynamiquement par main.js -->
           </div>
         </div>
 
@@ -119,7 +99,6 @@
       </div>
     </section>
 
-    <!-- PRÉSENTATION -->
     <section class="intro-section">
       <div class="container">
         <div class="intro-grid">
@@ -140,7 +119,6 @@
       </div>
     </section>
 
-    <!-- NOS UNIVERS -->
     <section>
       <div class="container">
         <div class="reveal">
@@ -218,7 +196,6 @@
       </div>
     </section>
 
-    <!-- CHIFFRES CLÉS -->
     <section class="chiffres-section">
       <div class="container">
         <div class="reveal" style="text-align:center;">
@@ -246,7 +223,6 @@
       </div>
     </section>
 
-    <!-- ÉVÉNEMENTS À VENIR -->
     <section>
       <div class="container">
         <div class="reveal" style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:56px;">
@@ -305,7 +281,6 @@
       </div>
     </section>
 
-    <!-- GALERIE IMMERSIVE -->
     <section style="padding-top:0;">
       <div class="container">
         <div class="reveal" style="margin-bottom:0;">
@@ -361,7 +336,6 @@
       </div>
     </section>
 
-    <!-- TÉMOIGNAGES -->
     <section class="temoignages-section">
       <div class="container">
         <div class="reveal" style="text-align:center;">
@@ -392,7 +366,6 @@
       </div>
     </section>
 
-    <!-- CTA FINAL -->
     <section class="cta-banner">
       <div class="container" style="position:relative; z-index:1;">
         <div class="reveal">
@@ -407,7 +380,6 @@
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer>
       <div class="container">
         <div class="footer-grid">
@@ -458,12 +430,8 @@
       </div>
     </footer>
 
-  </div><!-- /page-accueil -->
+  </div>
 
-
-  <!-- ╔══════════════════════════════════╗
-       ║  PAGE — L'ASSOCIATION           ║
-       ╚══════════════════════════════════╝ -->
   <div class="page" id="page-association">
 
     <section class="asso-hero">
@@ -477,7 +445,6 @@
       </div>
     </section>
 
-    <!-- MISSION -->
     <section>
       <div class="container">
         <div class="intro-grid reveal">
@@ -512,7 +479,6 @@
       </div>
     </section>
 
-    <!-- VALEURS -->
     <section style="background:var(--black-soft);">
       <div class="container">
         <div class="reveal" style="text-align:center;">
@@ -560,7 +526,6 @@
       </div>
     </section>
 
-    <!-- HISTORIQUE -->
     <section>
       <div class="container">
         <div class="reveal">
@@ -635,12 +600,8 @@
       </div>
     </footer>
 
-  </div><!-- /page-association -->
+  </div>
 
-
-  <!-- ╔══════════════════════════════════╗
-       ║  PAGE — ÉVÉNEMENTS              ║
-       ╚══════════════════════════════════╝ -->
   <div class="page" id="page-evenements">
 
     <section class="events-page-hero">
@@ -663,8 +624,6 @@
         </div>
 
         <div class="events-full-grid" id="eventsGrid">
-
-          <!-- 2026 / À VENIR -->
           <article class="event-card" data-year="2026 avenir">
             <div class="event-img">
             <img src="galerie/concerts/482272315_618966761001071_98029328264799427_n.jpg" alt="Old School Ambiance" loading="lazy" />
@@ -678,8 +637,6 @@
               <button class="event-btn">En savoir plus <span>&#8594;</span></button>
             </div>
           </article>
-
-          <!-- 2025 -->
           <article class="event-card" data-year="2025">
             <div class="event-img">
             <img src="galerie/Backstages/482205438_618966764334404_7375711029498316382_n.jpg" alt="After Work Piano Bar AMC" loading="lazy" />
@@ -763,8 +720,6 @@
               <button class="event-btn">En savoir plus <span>&#8594;</span></button>
             </div>
           </article>
-
-          <!-- 2024 -->
           <article class="event-card" data-year="2024">
             <div class="event-img">
             <img src="galerie/Affiches/658189683_17964597321086373_759194439260050119_n.jpg" alt="Festival Culturel du Continent Africain 2024" loading="lazy" />
@@ -778,8 +733,6 @@
               <button class="event-btn">Voir la galerie <span>&#8594;</span></button>
             </div>
           </article>
-
-          <!-- 2023 -->
           <article class="event-card" data-year="2023">
             <div class="event-img">
             <img src="galerie/défilé/480712816_608440235387057_8403607310011299154_n.jpg" alt="Exposition Défilé 2023" loading="lazy" />
@@ -798,7 +751,6 @@
       </div>
     </section>
 
-    <!-- NEWSLETTER -->
     <section style="background:var(--black-soft);">
       <div class="container" style="text-align:center; max-width:640px;">
         <div class="reveal">
@@ -822,7 +774,7 @@
       </div>
     </footer>
 
-  </div><!-- /page-evenements -->
+  </div>
 
 
   <!-- ╔══════════════════════════════════╗
@@ -851,8 +803,7 @@
         </div>
 
         <div class="galerie-full-grid" id="galerieGrid">
-          <!-- La galerie sera générée dynamiquement à partir des images du dossier local -->
-        </div>
+              </div>
 
         <script>
           const galleryImages = [
@@ -961,7 +912,7 @@
       </div>
     </footer>
 
-  </div><!-- /page-galerie -->
+  </div>
 
 
   <!-- ╔══════════════════════════════════╗
@@ -980,7 +931,6 @@
       </div>
     </section>
 
-    <!-- PROFILS -->
     <section style="padding-top:0;">
       <div class="container">
         <div class="reveal" style="text-align:center; margin-bottom:48px;">
@@ -1041,7 +991,6 @@
       </div>
     </section>
 
-    <!-- COTISATIONS -->
     <section style="background:var(--black-soft);">
       <div class="container">
         <div class="reveal" style="text-align:center; margin-bottom:48px;">
@@ -1149,7 +1098,7 @@
       </div>
     </footer>
 
-  </div><!-- /page-rejoindre -->
+  </div>
 
 
   <!-- ╔══════════════════════════════════╗
@@ -1168,7 +1117,6 @@
       </div>
     </section>
 
-    <!-- MONTANTS -->
     <section style="padding-top:0;">
       <div class="container" style="max-width:800px;">
         <div class="reveal" style="text-align:center; margin-bottom:40px;">
@@ -1192,7 +1140,6 @@
       </div>
     </section>
 
-    <!-- IMPACT -->
     <section style="background:var(--black-soft);">
       <div class="container">
         <div class="reveal" style="text-align:center; margin-bottom:48px;">
@@ -1245,7 +1192,7 @@
       </div>
     </footer>
 
-  </div><!-- /page-don -->
+  </div>
 
 
   <!-- ╔══════════════════════════════════╗
@@ -1302,7 +1249,7 @@
       </div>
     </footer>
 
-  </div><!-- /page-partenaires -->
+  </div>
 
 
   <!-- ╔══════════════════════════════════╗
@@ -1433,7 +1380,7 @@
       </div>
     </footer>
 
-  </div><!-- /page-contact -->
+  </div>
 
 
   <!-- ╔══════════════════════════════════╗
@@ -1452,8 +1399,7 @@
           </p>
         </div>
 
-        <!-- Récapitulatif commande -->
-        <div class="reveal" style="border:1px solid rgba(200,169,107,0.25); border-radius:8px; padding:32px; margin-bottom:40px; background:rgba(200,169,107,0.03);">
+            <div class="reveal" style="border:1px solid rgba(200,169,107,0.25); border-radius:8px; padding:32px; margin-bottom:40px; background:rgba(200,169,107,0.03);">
           <h3 style="color:var(--gold); font-family:'Cormorant Garamond',serif; font-size:1.3rem; margin-bottom:20px;">Récapitulatif</h3>
           <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.07);">
             <span style="color:var(--beige);">Cotisation annuelle AMC</span>
@@ -1469,8 +1415,7 @@
           </div>
         </div>
 
-        <!-- Informations personnelles -->
-        <div class="reveal" style="margin-bottom:32px;">
+            <div class="reveal" style="margin-bottom:32px;">
           <h3 style="color:var(--gold); font-family:'Cormorant Garamond',serif; font-size:1.2rem; margin-bottom:20px;">Vos informations</h3>
           <div class="form-grid" style="gap:16px;">
             <div class="form-group">
@@ -1484,8 +1429,7 @@
           </div>
         </div>
 
-        <!-- Zone de paiement -->
-        <div class="reveal" style="border:1px solid rgba(200,169,107,0.2); border-radius:8px; padding:32px; margin-bottom:32px; background:rgba(0,0,0,0.2);">
+            <div class="reveal" style="border:1px solid rgba(200,169,107,0.2); border-radius:8px; padding:32px; margin-bottom:32px; background:rgba(0,0,0,0.2);">
           <h3 style="color:var(--gold); font-family:'Cormorant Garamond',serif; font-size:1.2rem; margin-bottom:8px;">Paiement sécurisé</h3>
           <p style="color:rgba(255,255,255,0.4); font-size:0.82rem; margin-bottom:24px;">🔒 Cette zone est prête à accueillir votre système de paiement (Stripe, PayPal, HelloAsso, virement...)</p>
 
@@ -1496,8 +1440,7 @@
             <div style="font-size:0.75rem; margin-top:6px; opacity:0.6;">Stripe / PayPal / HelloAsso / Virement</div>
           </div>
 
-          <!-- Options de paiement alternatives -->
-          <div style="margin-top:24px;">
+                <div style="margin-top:24px;">
             <p style="color:var(--beige); font-size:0.88rem; margin-bottom:12px;">Vous pouvez aussi régler par :</p>
             <div style="display:flex; gap:12px; flex-wrap:wrap;">
               <div style="flex:1; min-width:180px; border:1px solid rgba(255,255,255,0.1); border-radius:6px; padding:14px 16px;">
@@ -1512,8 +1455,7 @@
           </div>
         </div>
 
-        <!-- CTA -->
-        <div class="reveal" style="text-align:center;">
+            <div class="reveal" style="text-align:center;">
           <button class="btn-primary" style="width:100%; max-width:380px; padding:18px; font-size:1rem;" onclick="handlePayment()">
             Payer 30 € et finaliser mon adhésion
           </button>
@@ -1535,7 +1477,7 @@
         </div>
       </div>
     </footer>
-  </div><!-- /page-paiement -->
+  </div>
 
 
   <!-- ╔══════════════════════════════════╗
