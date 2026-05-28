@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faire un don | Art Mode & Culture (AM&C) Lille</title>
+    <meta name="description" content="Soutenez l'association Art Mode & Culture à Lille par un don. Plusieurs montants proposés ou montant libre.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logos/Logo 1 Contouré.png" alt="Logo AM&C">
+                </a>
+            </div>
+            <div class="menu-burger" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="association.html">L'Association</a></li>
+                <li><a href="evenements.html">Événements</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="partenaires.html">Partenaires</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="rejoindre.html" class="btn-nav">Rejoindre AMC</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-minimalist" style="min-height: 40vh;">
+            <div class="hero-content">
+                <h1 class="hero-title">Faire un don</h1>
+                <p class="hero-subtitle">Soutenez l'association Art Mode & Culture et contribuez à la vie culturelle !</p>
+            </div>
+        </section>
+
+        <section class="section-padding bg-blanc-casse">
+            <div class="container" style="max-width: 600px;">
+                <h2 class="section-title">Choisissez votre montant</h2>
+                <form class="premium-form" action="#" method="post" id="don-form">
+                                        <div class="form-group">
+                                            <label for="don-nom">Nom complet</label>
+                                            <input type="text" id="don-nom" name="nom" placeholder="Votre nom" required>
+                                        </div>
+                    <div class="form-row" style="justify-content:center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap;">
+                        <label class="don-radio">
+                            <input type="radio" name="montant" value="10" required>
+                            <span class="don-btn">10 €</span>
+                        </label>
+                        <label class="don-radio">
+                            <input type="radio" name="montant" value="20">
+                            <span class="don-btn">20 €</span>
+                        </label>
+                        <label class="don-radio">
+                            <input type="radio" name="montant" value="30">
+                            <span class="don-btn">30 €</span>
+                        </label>
+                        <label class="don-radio">
+                            <input type="radio" name="montant" value="50">
+                            <span class="don-btn">50 €</span>
+                        </label>
+                        <label class="don-radio">
+                            <input type="radio" name="montant" value="100">
+                            <span class="don-btn">100 €</span>
+                        </label>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 30px;">
+                        <label for="montant-libre">Ou indiquez un montant libre :</label>
+                        <input type="number" min="1" step="1" name="montant-libre" id="montant-libre" placeholder="Montant libre (€)">
+                    </div>
+                    <button type="submit" class="btn-primary" disabled>Bientôt disponible via HelloAsso</button>
+                </form>
+                <p style="text-align:center; color:var(--couleur-or); margin-top:20px;">Le paiement sécurisé sera bientôt disponible via HelloAsso.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <img src="assets/images/logos/Logo 1 Contouré.png" alt="Logo AM&C" class="footer-logo">
+                    <p class="footer-desc">Art Mode & Culture (AMC) – Association culturelle à Lille, dédiée à la valorisation de l'art, de la mode et de la création locale.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="association.html">L'Association</a></li>
+                        <li><a href="evenements.html">Événements</a></li>
+                        <li><a href="galerie.html">Galerie</a></li>
+                        <li><a href="partenaires.html">Partenaires</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-contact">
+                        <li>27 rue Jean Bart, 59000 Lille</li>
+                        <li>06 35 79 36 91</li>
+                        <li>artmodeculture.lille@gmail.com</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container text-center">
+                &copy; 2026 Art Mode & Culture. Tous droits réservés.
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

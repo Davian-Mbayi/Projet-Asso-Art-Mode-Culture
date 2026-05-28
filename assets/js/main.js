@@ -50,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxClose = document.querySelector('.lightbox-close');
     const triggers = document.querySelectorAll('.lightbox-trigger');
 
-    // Quand on clique sur une image de la galerie...
     triggers.forEach(img => {
         img.addEventListener('click', () => {
             // On récupère la source (src) de l'image cliquée
@@ -62,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Quand on clique sur la croix pour fermer...
     if(lightboxClose) {
         lightboxClose.addEventListener('click', () => {
             lightboxContainer.classList.remove('active');
