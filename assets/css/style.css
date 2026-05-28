@@ -10,7 +10,7 @@
     
     /* Typographies */
     --font-titre: 'Playfair Display', serif;
-    --font-texte: 'Montserrat', sans-serif; 
+    --font-texte: 'Montserrat', Arial, Helvetica, sans-serif;
     
     /* ESPACEMENTS PREMIUM (Modifiés pour plus d'air) */
     --spacing-sm: 1.5rem; /* 24px - Pour les petits espaces (ex: entre un titre et un paragraphe) */
@@ -29,19 +29,26 @@
 
 body {
     font-family: var(--font-texte);
+    font-size: 1rem;
+    font-weight: 400;
     color: var(--couleur-noir);
-    background-color: var(--couleur-blanc-casse);
+    background: var(--couleur-blanc-casse);
     line-height: 1.6;
 }
 
 h1, h2, h3 {
     font-family: var(--font-titre);
     font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--couleur-noir);
+    margin-top: 0;
 }
 
 a {
+    font-family: inherit;
+    color: var(--couleur-noir);
     text-decoration: none;
-    color: inherit;
+    transition: color 0.2s;
 }
 
 /* ==========================================
@@ -294,10 +301,11 @@ a {
 }
 
 .presentation-text {
-    font-size: 1.2rem;
+    font-family: var(--font-texte);
+    font-size: 1.1rem;
     max-width: 800px;
-    margin: 0 auto;
-    color: #444; /* Un gris très foncé, plus doux à lire que le noir pur sur fond blanc */
+    margin: 0 auto 30px auto;
+    color: var(--couleur-noir);
     line-height: 1.8;
 }
 
