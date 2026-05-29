@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Art Mode & Culture — Association culturelle engagée dans la promotion de la culture, de l'art et de la mode à Lille." />
+  <meta name="keywords" content="art, mode, culture, Lille, association, événements, galerie" />
+  <title>Art Mode & Culture — Association Culturelle à Lille</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Arrière-plan animé -->
+  <div class="liquid-bg" aria-hidden="true">
+    <div class="liquid-orb"></div>
+    <div class="liquid-orb"></div>
+    <div class="liquid-orb"></div>
+  </div>
+
+  <nav id="mainNav">
+    <div class="nav-logo" onclick="navigate('accueil')" aria-label="Retour à l'accueil">
+      <img src="logo.png" alt="Art Mode &amp; Culture" />
+    </div>
+
+    <ul class="nav-links">
+      <li><a onclick="navigate('accueil')"      id="nav-accueil"      class="active">Accueil</a></li>
+      <li><a onclick="navigate('association')"  id="nav-association">L'Association</a></li>
+      <li><a onclick="navigate('evenements')"   id="nav-evenements">Événements</a></li>
+      <li><a onclick="navigate('galerie')"      id="nav-galerie">Galerie</a></li>
+      <li><a onclick="navigate('rejoindre')"    id="nav-rejoindre">Rejoindre AMC</a></li>
+      <li><a onclick="navigate('partenaires')"  id="nav-partenaires">Partenaires</a></li>
+      <li><a onclick="navigate('contact')"      id="nav-contact">Contact</a></li>
+    </ul>
+
+    <button class="nav-cta" onclick="navigate('don')">
+      <span>Faire un don</span>
+    </button>
+
+    <div class="hamburger" onclick="openMobile()" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu navigation">
+    <button class="mobile-close" onclick="closeMobile()" aria-label="Fermer le menu">&times;</button>
+    <a onclick="navigate('accueil');closeMobile()">Accueil</a>
+    <a onclick="navigate('association');closeMobile()">L'Association</a>
+    <a onclick="navigate('evenements');closeMobile()">Événements</a>
+    <a onclick="navigate('galerie');closeMobile()">Galerie</a>
+    <a onclick="navigate('rejoindre');closeMobile()">Rejoindre AMC</a>
+    <a onclick="navigate('partenaires');closeMobile()">Partenaires</a>
+    <a onclick="navigate('don');closeMobile()">Faire un don</a>
+    <a onclick="navigate('contact');closeMobile()">Contact</a>
+  </div>
+
+  <div id="lightbox" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.92); align-items:center; justify-content:center;" onclick="closeLightbox()">
+    <button style="position:absolute; top:24px; right:32px; color:var(--gold); background:none; border:none; font-size:2rem; cursor:pointer;" aria-label="Fermer">&times;</button>
+  </div>
+
+
+  <div class="page active" id="page-accueil">
+
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="hero-grain" aria-hidden="true"></div>
+      <div class="hero-glass-line" aria-hidden="true"></div>
+      <div class="hero-glass-line" aria-hidden="true"></div>
+      <div class="hero-line-left"  aria-hidden="true"></div>
+      <div class="hero-line-right" aria-hidden="true"></div>
+
+      <div class="hero-content">
+          <div class="hero-logo">
+          <div class="hero-logo-3d-wrapper">
+            <img src="logo.png" alt="Art Mode &amp; Culture — Logo" />
+          </div>
+        </div>
+
+        <p class="hero-label">Association Culturelle · Lille</p>
+
+        <h1 class="hero-title">
+          Art <em>Mode</em><br />&amp; Culture
+        </h1>
+
+        <p class="hero-subtitle">L'art, la mode et la culture au cœur de Lille.</p>
+
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="navigate('evenements')">Découvrir nos événements</button>
+          <button class="btn-outline" onclick="navigate('rejoindre')">Rejoindre l'association</button>
+        </div>
+      </div>
+
+      <div class="hero-scroll" aria-hidden="true">
+        <span>Défiler</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <section class="intro-section">
+      <div class="container">
+        <div class="intro-grid">
+          <div class="intro-text reveal">
+            <p class="section-label">Notre histoire</p>
+            <h2 class="section-title">Une association au service <em>de la culture</em></h2>
+            <div class="divider"></div>
+            <p>Art Mode &amp; Culture est une association culturelle engagée dans la promotion de la culture, de l'art et de la mode à Lille et dans ses environs.</p>
+            <p>Fondée pour rassembler artistes, créateurs et amateurs de culture, l'association AMC œuvre chaque jour pour rendre la culture accessible au plus grand nombre, organiser des événements fédérateurs et valoriser les talents locaux.</p>
+            <p>Inclusion, diversité, créativité et fraternité sont les valeurs qui guident chacune de nos actions.</p>
+            <br />
+            <button class="btn-outline" onclick="navigate('association')">Découvrir l'association</button>
+          </div>
+          <div class="intro-visual reveal">
+            <img src="logo.png" alt="Logo Art Mode &amp; Culture" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="reveal">
+          <p class="section-label">Ce que nous faisons</p>
+          <h2 class="section-title">Nos <em>univers</em></h2>
+        </div>
+        <div class="univers-grid">
+
+          <div class="univers-card reveal">
+            <div class="univers-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/>
+                <rect x="3" y="13" width="8" height="8"/><circle cx="17" cy="17" r="4"/>
+              </svg>
+            </div>
+            <div>
+              <p class="univers-name">Art &amp;<br />Expositions</p>
+              <div class="univers-line"></div>
+            </div>
+          </div>
+
+          <div class="univers-card reveal">
+            <div class="univers-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2L8 6H4v12h16V6h-4L12 2z"/>
+                <path d="M12 6v8M9 10l3 4 3-4"/>
+              </svg>
+            </div>
+            <div>
+              <p class="univers-name">Mode &amp;<br />Défilés</p>
+              <div class="univers-line"></div>
+            </div>
+          </div>
+
+          <div class="univers-card reveal">
+            <div class="univers-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="3"/>
+                <path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/>
+              </svg>
+            </div>
+            <div>
+              <p class="univers-name">Musique &amp;<br />Concerts</p>
+              <div class="univers-line"></div>
+            </div>
+          </div>
+
+          <div class="univers-card reveal">
+            <div class="univers-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div>
+              <p class="univers-name">Culture &amp;<br />Citoyenneté</p>
+              <div class="univers-line"></div>
+            </div>
+          </div>
+
+          <div class="univers-card reveal">
+            <div class="univers-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+            </div>
+            <div>
+              <p class="univers-name">Entrepreneuriat &amp;<br />Réseaux</p>
+              <div class="univers-line"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="chiffres-section">
+      <div class="container">
+        <div class="reveal" style="text-align:center;">
+          <p class="section-label" style="justify-content:center;">En chiffres</p>
+          <h2 class="section-title">L'impact <em>d'AMC</em></h2>
+        </div>
+        <div class="chiffres-grid">
+          <div class="chiffre-item reveal">
+            <span class="chiffre-num counter" data-target="25">0</span>
+            <span class="chiffre-label">Événements organisés</span>
+          </div>
+          <div class="chiffre-item reveal">
+            <span class="chiffre-num counter" data-target="150">0</span>
+            <span class="chiffre-label">Artistes accompagnés</span>
+          </div>
+          <div class="chiffre-item reveal">
+            <span class="chiffre-num counter" data-target="5000">0</span>
+            <span class="chiffre-label">Participants</span>
+          </div>
+          <div class="chiffre-item reveal">
+            <span class="chiffre-num counter" data-target="40">0</span>
+            <span class="chiffre-label">Partenaires</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="reveal" style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:56px;">
+          <div>
+            <p class="section-label">Agenda</p>
+            <h2 class="section-title">Événements <em>à venir</em></h2>
+          </div>
+          <button class="btn-outline" onclick="navigate('evenements')" style="flex-shrink:0;">Tous les événements</button>
+        </div>
+
+        <div class="events-grid">
+
+          <article class="event-card reveal">
+            <div class="event-img">
+            <img src="galerie/Affiches/690205248_17964600612086373_2678800670389616223_n.jpg" alt="Concert Unis contre les discriminations" loading="lazy" />
+            <div class="event-img-overlay"></div>
+            <span class="event-tag">À VENIR</span>
+            </div>
+            <div class="event-body">
+              <p class="event-meta">21 MARS 2026 · LE MANDÉ, LILLE</p>
+              <h3 class="event-title">Concert "Unis contre les discriminations"</h3>
+              <p class="event-desc">Concert engagé autour de la lutte contre les discriminations et pour le vivre-ensemble.</p>
+              <button class="event-btn" onclick="navigate('evenements')">En savoir plus <span>&#8594;</span></button>
+            </div>
+          </article>
+
+          <article class="event-card reveal">
+            <div class="event-img">
+            <img src="galerie/Affiches/684932864_17964597360086373_5441260454552980300_n.jpg" alt="Festival Culturel du Continent Africain" loading="lazy" />
+            <div class="event-img-overlay"></div>
+            <span class="event-tag">2025</span>
+            </div>
+            <div class="event-body">
+              <p class="event-meta">6 DÉC. 2025 · SALLE IMPÉRIAL, LILLE</p>
+              <h3 class="event-title">Festival Culturel du Continent Africain</h3>
+              <p class="event-desc">Une célébration des cultures africaines à travers l'art, la musique et la gastronomie.</p>
+              <button class="event-btn" onclick="navigate('evenements')">En savoir plus <span>&#8594;</span></button>
+            </div>
+          </article>
+
+          <article class="event-card reveal">
+            <div class="event-img">
+            <img src="galerie/Affiches/686329782_17964597339086373_2072289524437450190_n.jpg" alt="Conférence AMC" loading="lazy" />
+            <div class="event-img-overlay"></div>
+            <span class="event-tag">2025</span>
+            </div>
+            <div class="event-body">
+              <p class="event-meta">21 JUIN 2025 · FAVELA BAR, LILLE</p>
+              <h3 class="event-title">Fête de la Musique</h3>
+              <p class="event-desc">Une soirée festive pour célébrer la musique sous toutes ses formes, en plein air.</p>
+              <button class="event-btn" onclick="navigate('evenements')">En savoir plus <span>&#8594;</span></button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section style="padding-top:0;">
+      <div class="container">
+        <div class="reveal" style="margin-bottom:0;">
+          <p class="section-label">Nos moments</p>
+          <h2 class="section-title">La vie <em>d'AMC</em></h2>
+        </div>
+        <div class="galerie-grid">
+
+          <div class="galerie-item tall reveal" onclick="openLightbox(this)">
+            <img src="galerie/défilé/480712816_608440235387057_8403607310011299154_n.jpg" alt="Défilé AMC" loading="lazy" />
+            <div class="galerie-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,107,0.8)" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          </div>
+
+          <div class="galerie-item reveal" onclick="openLightbox(this)">
+            <img src="galerie/concerts/482272315_618966761001071_98029328264799427_n.jpg" alt="Concert AMC" loading="lazy" />
+            <div class="galerie-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,107,0.8)" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          </div>
+
+          <div class="galerie-item reveal" onclick="openLightbox(this)">
+            <img src="galerie/expositions/482250827_618966717667742_2402897254331100407_n.jpg" alt="Exposition AMC" loading="lazy" />
+            <div class="galerie-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,107,0.8)" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          </div>
+
+          <div class="galerie-item wide reveal" onclick="openLightbox(this)">
+            <img src="galerie/public/472700731_17911223979086373_7301952942377907097_n.jpg" alt="Public AMC" loading="lazy" />
+            <div class="galerie-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,107,0.8)" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          </div>
+
+          <div class="galerie-item reveal" onclick="openLightbox(this)">
+            <img src="galerie/défilé/482205028_618966961001051_1535376431775391342_n.jpg" alt="Défilé mode AMC" loading="lazy" />
+            <div class="galerie-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,107,0.8)" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          </div>
+
+          <div class="galerie-item tall reveal" onclick="openLightbox(this)">
+            <img src="galerie/Backstages/483364319_618967081001039_4655811177349411345_n.jpg" alt="Backstage AMC" loading="lazy" />
+            <div class="galerie-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,107,0.8)" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          </div>
+
+          <div class="galerie-item reveal" onclick="openLightbox(this)">
+            <img src="galerie/défilé/482253178_618966801001067_7509743639370563440_n.jpg" alt="Mode AMC" loading="lazy" />
+            <div class="galerie-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,107,0.8)" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          </div>
+
+          <div class="galerie-item reveal" onclick="openLightbox(this)">
+            <img src="galerie/expositions/482251698_618966781001069_8122961068557577304_n.jpg" alt="Artistes AMC" loading="lazy" />
+            <div class="galerie-overlay"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,107,0.8)" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></div>
+          </div>
+
+        </div>
+        <div style="text-align:center; margin-top:32px;">
+          <button class="btn-outline" onclick="navigate('galerie')">Voir toute la galerie</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="temoignages-section">
+      <div class="container">
+        <div class="reveal" style="text-align:center;">
+          <p class="section-label" style="justify-content:center;">Ce qu'ils disent</p>
+          <h2 class="section-title">Témoignages</h2>
+        </div>
+        <div class="temoignages-grid">
+
+          <div class="temoignage-card reveal">
+            <p class="temoignage-text">Une association qui fait vraiment bouger les choses à Lille. Les événements sont toujours d'une qualité remarquable et l'ambiance est incroyable.</p>
+            <p class="temoignage-author">Sophie M.</p>
+            <p class="temoignage-role">Artiste peintre · Membre depuis 2023</p>
+          </div>
+
+          <div class="temoignage-card reveal">
+            <p class="temoignage-text">AMC m'a permis de rencontrer des créateurs formidables et de me produire dans des cadres exceptionnels. Une vraie communauté culturelle.</p>
+            <p class="temoignage-author">Kévin T.</p>
+            <p class="temoignage-role">Musicien · Participant au Festival 2024</p>
+          </div>
+
+          <div class="temoignage-card reveal">
+            <p class="temoignage-text">En tant que partenaire, nous sommes fiers de soutenir les actions d'AMC. Leur professionnalisme et leur engagement sont exemplaires.</p>
+            <p class="temoignage-author">Marie-Claire B.</p>
+            <p class="temoignage-role">Directrice · Partenaire institutionnel</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner">
+      <div class="container" style="position:relative; z-index:1;">
+        <div class="reveal">
+          <p class="section-label" style="justify-content:center;">Ensemble</p>
+          <h2 class="section-title">Rejoignez une communauté<br />culturelle <em>engagée</em></h2>
+          <p>Artistes, créateurs, spectateurs — votre place est ici.</p>
+          <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+            <button class="btn-primary" onclick="navigate('rejoindre')">Devenir membre</button>
+            <button class="btn-outline" onclick="navigate('don')">Soutenir AMC</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img src="logo.png" alt="Art Mode &amp; Culture" />
+            <p>Association culturelle engagée dans la promotion de la culture, de l'art et de la mode à Lille depuis 2022.</p>
+            <div class="footer-socials">
+              <a class="social-icon" href="https://www.facebook.com/artmodeetculture" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a class="social-icon" href="https://www.instagram.com/artmodeetculture" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a onclick="navigate('accueil')">Accueil</a>
+            <a onclick="navigate('association')">L'Association</a>
+            <a onclick="navigate('evenements')">Événements</a>
+            <a onclick="navigate('galerie')">Galerie</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>Rejoindre</h4>
+            <a onclick="navigate('rejoindre')">Devenir membre</a>
+            <a onclick="navigate('don')">Faire un don</a>
+            <a onclick="navigate('partenaires')">Partenariats</a>
+            <a onclick="navigate('contact')">Contact</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <p>72 Rue de Flers<br />59000 Lille</p>
+            <p>03 66 96 43 52</p>
+            <p>06 35 79 36 91</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Art Mode &amp; Culture · Association Loi 1901</p>
+          <div style="display:flex; gap:24px;">
+            <a onclick="navigate('mentions')">Mentions légales</a>
+            <a onclick="navigate('confidentialite')">Confidentialité</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <div class="page" id="page-association">
+
+    <section class="asso-hero">
+      <div class="container">
+        <p class="section-label" style="justify-content:center;">Qui sommes-nous</p>
+        <h1 class="section-title">L'<em>Association</em></h1>
+        <div class="divider" style="margin:24px auto;"></div>
+        <p style="max-width:600px; margin:0 auto; color:var(--beige); font-size:1rem; font-weight:300; line-height:1.9;">
+          Art Mode &amp; Culture est une association loi 1901 basée à Lille, œuvrant pour la promotion de la culture, de l'art et de la mode.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="intro-grid reveal">
+          <div class="intro-text">
+            <p class="section-label">Notre raison d'être</p>
+            <h2 class="section-title">Mission &amp; <em>Objectifs</em></h2>
+            <div class="divider"></div>
+            <p>Promouvoir la culture, l'art et la mode en fédérant artistes, créateurs et amateurs au sein d'une communauté dynamique et inclusive.</p>
+            <br />
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:14px;">
+              <li style="display:flex; gap:12px; align-items:flex-start; font-size:0.88rem; color:var(--beige);">
+                <span style="color:var(--gold); margin-top:2px;">&#8212;</span> Développer des projets culturels innovants
+              </li>
+              <li style="display:flex; gap:12px; align-items:flex-start; font-size:0.88rem; color:var(--beige);">
+                <span style="color:var(--gold); margin-top:2px;">&#8212;</span> Organiser des événements fédérateurs
+              </li>
+              <li style="display:flex; gap:12px; align-items:flex-start; font-size:0.88rem; color:var(--beige);">
+                <span style="color:var(--gold); margin-top:2px;">&#8212;</span> Valoriser les talents locaux
+              </li>
+              <li style="display:flex; gap:12px; align-items:flex-start; font-size:0.88rem; color:var(--beige);">
+                <span style="color:var(--gold); margin-top:2px;">&#8212;</span> Favoriser le vivre-ensemble par la culture
+              </li>
+              <li style="display:flex; gap:12px; align-items:flex-start; font-size:0.88rem; color:var(--beige);">
+                <span style="color:var(--gold); margin-top:2px;">&#8212;</span> Créer des archives culturelles durables
+              </li>
+            </ul>
+          </div>
+          <div class="intro-visual">
+            <img src="logo.png" alt="Art Mode &amp; Culture" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:var(--black-soft);">
+      <div class="container">
+        <div class="reveal" style="text-align:center;">
+          <p class="section-label" style="justify-content:center;">Ce qui nous guide</p>
+          <h2 class="section-title">Nos <em>valeurs</em></h2>
+        </div>
+        <div class="valeurs-grid">
+
+          <div class="valeur-card reveal">
+            <div class="valeur-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <p class="valeur-name">Inclusion</p>
+          </div>
+
+          <div class="valeur-card reveal">
+            <div class="valeur-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <p class="valeur-name">Diversité</p>
+          </div>
+
+          <div class="valeur-card reveal">
+            <div class="valeur-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="valeur-name">Créativité</p>
+          </div>
+
+          <div class="valeur-card reveal">
+            <div class="valeur-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <p class="valeur-name">Fraternité</p>
+          </div>
+
+          <div class="valeur-card reveal">
+            <div class="valeur-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <p class="valeur-name">Transmission</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="reveal">
+          <p class="section-label">Notre parcours</p>
+          <h2 class="section-title">Historique &amp; <em>Impact</em></h2>
+        </div>
+        <div class="timeline">
+
+          <div class="timeline-item reveal">
+            <div class="timeline-year">2022</div>
+            <div class="timeline-content">
+              <h4>Fondation de l'association</h4>
+              <p>Création d'Art Mode &amp; Culture à Lille, avec pour mission de rassembler artistes et créateurs autour d'un projet culturel commun.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-year">2023</div>
+            <div class="timeline-content">
+              <h4>Exposition &amp; Défilé Mode et Culture</h4>
+              <p>Premier grand événement à la Place Sébastopol de Lille le 4 novembre 2023, marquant l'entrée d'AMC dans le paysage culturel lillois.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-year">2024</div>
+            <div class="timeline-content">
+              <h4>Festival Culturel du Continent Africain</h4>
+              <p>29–30 novembre 2024 à Lille — deux jours de festivités, concerts et expositions rassemblant plus de 1 000 participants.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-year">2025</div>
+            <div class="timeline-content">
+              <h4>Expansion et diversification</h4>
+              <p>Fête de la Musique, Festival Culturel, Conférence écologie, Old School Ambiance, Afro Business Event, After Work Piano Bar — une année riche en événements.</p>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal">
+            <div class="timeline-year">2026</div>
+            <div class="timeline-content">
+              <h4>Concert "Unis contre les discriminations"</h4>
+              <p>21 mars 2026 au Le Mandé, Lille — un concert engagé portant un message fort autour de la lutte contre toutes les discriminations.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner">
+      <div class="container" style="position:relative; z-index:1;">
+        <div class="reveal">
+          <h2 class="section-title">Rejoignez <em>l'aventure</em></h2>
+          <p>Votre engagement compte pour faire vivre la culture à Lille.</p>
+          <button class="btn-primary" onclick="navigate('rejoindre')">Devenir membre</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-bottom" style="border-top:none; padding-top:0;">
+          <p>&copy; 2025 Art Mode &amp; Culture · Association Loi 1901</p>
+          <div style="display:flex; gap:24px;">
+            <a onclick="navigate('mentions')">Mentions légales</a>
+            <a onclick="navigate('confidentialite')">Confidentialité</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <div class="page" id="page-evenements">
+
+    <section class="events-page-hero">
+      <div class="container">
+        <p class="section-label" style="justify-content:center;">Agenda culturel</p>
+        <h1 class="section-title">Nos <em>Événements</em></h1>
+        <div class="divider" style="margin:24px auto;"></div>
+      </div>
+    </section>
+
+    <section style="padding-top:0;">
+      <div class="container">
+        <div class="filter-bar" role="tablist" aria-label="Filtrer par année">
+          <button class="filter-btn active" role="tab" onclick="filterEvents('tous', this)">Tous</button>
+          <button class="filter-btn" role="tab" onclick="filterEvents('avenir', this)">À venir</button>
+          <button class="filter-btn" role="tab" onclick="filterEvents('2026', this)">2026</button>
+          <button class="filter-btn" role="tab" onclick="filterEvents('2025', this)">2025</button>
+          <button class="filter-btn" role="tab" onclick="filterEvents('2024', this)">2024</button>
+          <button class="filter-btn" role="tab" onclick="filterEvents('2023', this)">2023</button>
+        </div>
+
+        <div class="events-full-grid" id="eventsGrid">
+          <article class="event-card" data-year="2026 avenir">
+            <div class="event-img">
+            <img src="galerie/concerts/482272315_618966761001071_98029328264799427_n.jpg" alt="Old School Ambiance" loading="lazy" />
+            <div class="event-img-overlay"></div>
+            <span class="event-tag">À VENIR</span>
+            </div>
+            <div class="event-body">
+              <p class="event-meta">21 MARS 2026 · LE MANDÉ, LILLE</p>
+              <h3 class="event-title">Concert "Unis contre les discriminations"</h3>
+              <p class="event-desc">Concert engagé autour de la lutte contre les discriminations. Une soirée musicale portant un message fort pour le vivre-ensemble.</p>
+              <button class="event-btn">En savoir plus <span>&#8594;</span></button>
+            </div>
+          </article>
+          <article class="event-card" data-year="2025">
+            <div class="event-img">
+            <img src="galerie/Backstages/482205438_618966764334404_7375711029498316382_n.jpg" alt="After Work Piano Bar AMC" loading="lazy" />
+            <div class="event-img-overlay"></div>
+            <span class="event-tag">2025</span>
+            </div>
+            <div class="event-body">
+              <p class="event-meta">6 DÉC. 2025 · SALLE IMPÉRIAL, LILLE</p>
+              <h3 class="event-title">Festival Culturel du Continent Africain</h3>
+              <p class="event-desc">Une célébration des richesses culturelles du continent africain à travers la musique, la danse, l'art et la gastronomie.</p>
+              <button class="event-btn">En savoir plus <span>&#8594;</span></button>
+            </div>
+          </article>
+
+          <article class="event-card" data-year="2025">
+            <div class="event-img">
+            <img src="galerie/concerts/483563526_618806101017137_4543469384887453948_n.jpg" alt="Fête de la Musique AMC" loading="lazy" />
+            <div class="event-img-overlay"></div>
+            <span class="event-tag">2025</span>
+            </div>
+            <div class="event-body">
+              <p class="event-meta">23 NOV. 2025 · MAISON DES ASSOCIATIONS, LILLE</p>
+              <h3 class="event-title">Conférence — Transition écologique et implication citoyenne</h3>
+              <p class="event-desc">Table ronde et débat autour des enjeux environnementaux et du rôle des citoyens dans la transition écologique.</p>
+              <button class="event-btn">En savoir plus <span>&#8594;</span></button>
+            </div>
+          </article>
+
+          <article class="event-card" data-year="2025">
+            <div class="event-img">
+            <img src="galerie/Affiches/686413257_17964597315086373_4139380664633702091_n.jpg" alt="Afro Business Event" loading="lazy" />
+            <div class="event-img-overlay"></div>
+            <span class="event-tag">2025</span>
+            </div>
+            <div class="event-body">
+              <p class="event-meta">12 OCT. 2025 · JOST LILLE</p>
+              <h3 class="event-title">Old School Ambiance</h3>
+              <p class="event-desc">Une soirée nostalgique célébrant les classiques de la musique soul, funk et R&amp;B dans une ambiance chaleureuse et festive.</p>
+              <button class="event-btn">En savoir plus <span>&#8594;</span></button>
+            </div>
+          </article>
+
+          <article class="event-card" data-year="2025">
+            <div class="event-img">
+            <img src="galerie/défilé/480712816_608440235387057_8403607310011299154_n.jpg" alt="Exposition Défilé Mode et Culture 2023" loading="lazy" />
+            <div class="event-img-overlay"></div>
+            <span class="event-tag">2025</span>
+            </div>
+            <div class="event-body">
+              <p class="event-meta">À PARTIR DU 26 JUIN 2025 · CENTRAL HOSTEL, LILLE</p>
+              <h3 class="event-title">After Work Piano Bar</h3>
+              <p class="event-desc">Rendez-vous mensuel autour du piano dans un cadre intimiste et élégant pour terminer la semaine en beauté.</p>
+              <button class="event-btn">En savoir plus <span>&#8594;</span></button>
+            </div>
+          </article>
+
+          <article class="event-card" data-year="2025">
+            <div class="event-img">
+            <img src="galerie/concerts/483563526_618806101017137_4543469384887453948_n.jpg" alt="Fête de la Musique AMC" loading="lazy" />
+            <div class="event-img-overlay"></div>
+            <span class="event-tag">2025</span>
+            </div>
+            <div class="event-body">
+              <p class="event-meta">21 JUIN 2025 · FAVELA BAR, LILLE</p>
+              <h3 class="event-title">Fête de la Musique</h3>
+              <p class="event-desc">Célébration de la fête nationale de la musique en plein air avec des artistes locaux et régionaux de tous horizons.</p>
+              <button class="event-btn">En savoir plus <span>&#8594;</span></button>
+            </div>
+          </article>
+
+          <article class="event-card" data-year="2025">
+            <div class="event-img">
+            <img src="galerie/Affiches/686413257_17964597315086373_4139380664633702091_n.jpg" alt="Afro Business Event" loading="lazy" />
+            <div class="event-img-overlay"></div>
+            <span class="event-tag">2025</span>
+            </div>
+            <div class="event-body">
+              <p class="event-meta">4 AVR. 2025 · TWENTY BUSINESS FLATS, LILLE</p>
+              <h3 class="event-title">Afro Business Event</h3>
+              <p class="event-desc">Rencontre entre entrepreneurs et professionnels autour du networking, du partage d'expériences et du développement économique.</p>
+              <button class="event-btn">En savoir plus <span>&#8594;</span></button>
+            </div>
+          </article>
+          <article class="event-card" data-year="2024">
+            <div class="event-img">
+            <img src="galerie/Affiches/658189683_17964597321086373_759194439260050119_n.jpg" alt="Festival Culturel du Continent Africain 2024" loading="lazy" />
+            <div class="event-img-overlay"></div>
+            <span class="event-tag">2024</span>
+            </div>
+            <div class="event-body">
+              <p class="event-meta">29–30 NOV. 2024 · LILLE</p>
+              <h3 class="event-title">Festival Culturel du Continent Africain</h3>
+              <p class="event-desc">Première édition du festival culturel africain à Lille : deux jours de festivités, concerts, expositions et gastronomie.</p>
+              <button class="event-btn">Voir la galerie <span>&#8594;</span></button>
+            </div>
+          </article>
+          <article class="event-card" data-year="2023">
+            <div class="event-img">
+            <img src="galerie/défilé/480712816_608440235387057_8403607310011299154_n.jpg" alt="Exposition Défilé 2023" loading="lazy" />
+            <div class="event-img-overlay"></div>
+            <span class="event-tag">2023</span>
+            </div>
+            <div class="event-body">
+              <p class="event-meta">4 NOV. 2023 · PLACE SÉBASTOPOL, LILLE</p>
+              <h3 class="event-title">Exposition &amp; Défilé Mode et Culture</h3>
+              <p class="event-desc">Premier grand événement d'AMC mêlant exposition artistique et défilé de mode dans l'un des lieux iconiques de Lille.</p>
+              <button class="event-btn">Voir la galerie <span>&#8594;</span></button>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section style="background:var(--black-soft);">
+      <div class="container" style="text-align:center; max-width:640px;">
+        <div class="reveal">
+          <p class="section-label" style="justify-content:center;">Ne rien manquer</p>
+          <h2 class="section-title">Restez <em>informé</em></h2>
+          <div class="divider" style="margin:24px auto 32px;"></div>
+          <p style="color:var(--beige); font-size:0.9rem; margin-bottom:32px;">Inscrivez-vous pour recevoir nos prochaines actualités et événements directement dans votre boîte mail.</p>
+          <div style="display:flex; gap:12px; max-width:480px; margin:0 auto;">
+            <input type="email" placeholder="Votre adresse email" style="flex:1; background:rgba(255,255,255,0.04); border:1px solid rgba(200,169,107,0.2); color:var(--off-white); padding:14px 16px; font-size:0.88rem; font-family:'Montserrat',sans-serif; outline:none;" aria-label="Email pour la newsletter" />
+            <button class="btn-primary">S'inscrire</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-bottom" style="border-top:none; padding-top:0;">
+          <p>&copy; 2025 Art Mode &amp; Culture</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+
+  <div class="page" id="page-galerie">
+
+    <section class="galerie-hero">
+      <div class="container">
+        <p class="section-label" style="justify-content:center;">Notre univers visuel</p>
+        <h1 class="section-title"><em>Galerie</em></h1>
+        <div class="divider" style="margin:24px auto;"></div>
+      </div>
+    </section>
+
+    <section style="padding-top:0;">
+      <div class="container">
+        <div class="galerie-cats" role="tablist" aria-label="Filtrer la galerie">
+          <button class="galerie-cat-btn active" role="tab" onclick="filterGalerie('tous', this)">Tous</button>
+          <button class="galerie-cat-btn" role="tab" onclick="filterGalerie('defiles', this)">Défilés</button>
+          <button class="galerie-cat-btn" role="tab" onclick="filterGalerie('concerts', this)">Concerts</button>
+          <button class="galerie-cat-btn" role="tab" onclick="filterGalerie('festivals', this)">Festivals</button>
+          <button class="galerie-cat-btn" role="tab" onclick="filterGalerie('expositions', this)">Expositions</button>
+          <button class="galerie-cat-btn" role="tab" onclick="filterGalerie('public', this)">Public</button>
+          <button class="galerie-cat-btn" role="tab" onclick="filterGalerie('backstage', this)">Backstage</button>
+        </div>
+
+        <div class="galerie-full-grid" id="galerieGrid">
+              </div>
+
+        <script>
+          const galleryImages = [
+            // Affiches (map to expositions)
+            { src: 'galerie/Affiches/586651792_17945267517086373_3122280499861900951_n.jpg', cat: 'expositions', alt: 'Affiche 1' },
+            { src: 'galerie/Affiches/658189683_17964597321086373_759194439260050119_n.jpg', cat: 'expositions', alt: 'Affiche 2' },
+            { src: 'galerie/Affiches/684293236_17964603438086373_1032778765825081709_n.jpg', cat: 'expositions', alt: 'Affiche 3' },
+            { src: 'galerie/Affiches/684932864_17964597360086373_5441260454552980300_n.jpg', cat: 'expositions', alt: 'Affiche 4' },
+            { src: 'galerie/Affiches/686329782_17964597339086373_2072289524437450190_n.jpg', cat: 'expositions', alt: 'Affiche 5' },
+            { src: 'galerie/Affiches/686413257_17964597315086373_4139380664633702091_n.jpg', cat: 'expositions', alt: 'Affiche 6' },
+            { src: 'galerie/Affiches/686552551_17964597336086373_3718095997098967732_n.jpg', cat: 'expositions', alt: 'Affiche 7' },
+            { src: 'galerie/Affiches/687485211_17964597348086373_3044337517869509171_n.jpg', cat: 'expositions', alt: 'Affiche 8' },
+            { src: 'galerie/Affiches/689139539_950003301230747_7275713487811480238_n.jpg', cat: 'expositions', alt: 'Affiche 9' },
+            { src: 'galerie/Affiches/690205248_17964600612086373_2678800670389616223_n.jpg', cat: 'expositions', alt: 'Affiche 10' },
+
+            // Backstage
+            { src: 'galerie/Backstages/482205438_618966764334404_7375711029498316382_n.jpg', cat: 'backstage', alt: 'Backstage 1' },
+            { src: 'galerie/Backstages/483364319_618967081001039_4655811177349411345_n.jpg', cat: 'backstage', alt: 'Backstage 2' },
+            { src: 'galerie/Backstages/483369613_618966947667719_6307631766253751504_n.jpg', cat: 'backstage', alt: 'Backstage 3' },
+            { src: 'galerie/Backstages/483486335_618967107667703_2307921811125722019_n.jpg', cat: 'backstage', alt: 'Backstage 4' },
+
+            // Concerts
+            { src: 'galerie/concerts/482272315_618966761001071_98029328264799427_n.jpg', cat: 'concerts', alt: 'Concert 1' },
+            { src: 'galerie/concerts/483563526_618806101017137_4543469384887453948_n.jpg', cat: 'concerts', alt: 'Concert 2' },
+
+            // Défilés
+            { src: 'galerie/défilé/480712816_608440235387057_8403607310011299154_n.jpg', cat: 'defiles', alt: 'Défilé 1' },
+            { src: 'galerie/défilé/480835555_608440475387033_9222853434773521574_n.jpg', cat: 'defiles', alt: 'Défilé 2' },
+            { src: 'galerie/défilé/480842206_608440528720361_5407369429612309977_n.jpg', cat: 'defiles', alt: 'Défilé 3' },
+            { src: 'galerie/défilé/481297782_608440082053739_6264661571104776678_n.jpg', cat: 'defiles', alt: 'Défilé 4' },
+            { src: 'galerie/défilé/481469749_618966837667730_5217569753943825608_n.jpg', cat: 'defiles', alt: 'Défilé 5' },
+            { src: 'galerie/défilé/482205028_618966961001051_1535376431775391342_n.jpg', cat: 'defiles', alt: 'Défilé 6' },
+            { src: 'galerie/défilé/482250577_618967154334365_2082769584862213807_n.jpg', cat: 'defiles', alt: 'Défilé 7' },
+            { src: 'galerie/défilé/482250850_618966811001066_8546611569071614012_n.jpg', cat: 'defiles', alt: 'Défilé 8' },
+            { src: 'galerie/défilé/482253178_618966801001067_7509743639370563440_n.jpg', cat: 'defiles', alt: 'Défilé 9' },
+            { src: 'galerie/défilé/482253269_618967001001047_8583602313205629060_n.jpg', cat: 'defiles', alt: 'Défilé 10' },
+            { src: 'galerie/défilé/482253668_618966864334394_1660735093731140499_n.jpg', cat: 'defiles', alt: 'Défilé 11' },
+            { src: 'galerie/défilé/482258612_618967201001027_517150611208295301_n.jpg', cat: 'defiles', alt: 'Défilé 12' },
+            { src: 'galerie/défilé/483364405_618966857667728_7822122061988683463_n.jpg', cat: 'defiles', alt: 'Défilé 13' },
+            { src: 'galerie/défilé/483365463_618966987667715_2711831476317015849_n.jpg', cat: 'defiles', alt: 'Défilé 14' },
+            { src: 'galerie/défilé/483366014_618967177667696_6698046105104225187_n.jpg', cat: 'defiles', alt: 'Défilé 15' },
+            { src: 'galerie/défilé/483368648_618966821001065_6223246756326395759_n.jpg', cat: 'defiles', alt: 'Défilé 16' },
+            { src: 'galerie/défilé/483488472_618967167667697_7471697935474561291_n.jpg', cat: 'defiles', alt: 'Défilé 17' },
+            { src: 'galerie/défilé/483488991_618966711001076_7346727947991655038_n.jpg', cat: 'defiles', alt: 'Défilé 18' },
+            { src: 'galerie/défilé/483504575_618966814334399_8330919529165964489_n.jpg', cat: 'defiles', alt: 'Défilé 19' },
+            { src: 'galerie/défilé/483507209_618966937667720_2061252704893513512_n.jpg', cat: 'defiles', alt: 'Défilé 20' },
+            { src: 'galerie/défilé/483511239_618966774334403_4423579860401880320_n.jpg', cat: 'defiles', alt: 'Défilé 21' },
+            { src: 'galerie/défilé/483525229_618966894334391_45712332276326500_n.jpg', cat: 'defiles', alt: 'Défilé 22' },
+            { src: 'galerie/défilé/483527748_618966971001050_7259697559630947894_n.jpg', cat: 'defiles', alt: 'Défilé 23' },
+
+            // Expositions
+            { src: 'galerie/expositions/482249128_618966844334396_1053770020662939835_n.jpg', cat: 'expositions', alt: 'Exposition 1' },
+            { src: 'galerie/expositions/482250275_618966884334392_6967045390271826367_n.jpg', cat: 'expositions', alt: 'Exposition 2' },
+            { src: 'galerie/expositions/482250827_618966717667742_2402897254331100407_n.jpg', cat: 'expositions', alt: 'Exposition 3' },
+            { src: 'galerie/expositions/482251698_618966781001069_8122961068557577304_n.jpg', cat: 'expositions', alt: 'Exposition 4' },
+            { src: 'galerie/expositions/482253717_618966954334385_7099923346892202962_n.jpg', cat: 'expositions', alt: 'Exposition 5' },
+            { src: 'galerie/expositions/482270303_618966787667735_8749587643515469700_n.jpg', cat: 'expositions', alt: 'Exposition 6' },
+            { src: 'galerie/expositions/482359920_618966921001055_6814623326155378899_n.jpg', cat: 'expositions', alt: 'Exposition 7' },
+            { src: 'galerie/expositions/483368915_618967161001031_290151601710801648_n.jpg', cat: 'expositions', alt: 'Exposition 8' },
+            { src: 'galerie/expositions/483509439_618966797667734_3209274064644636270_n.jpg', cat: 'expositions', alt: 'Exposition 9' },
+
+            // Public
+            { src: 'galerie/public/472700731_17911223979086373_7301952942377907097_n.jpg', cat: 'public', alt: 'Public' }
+          ];
+
+          function renderGallery() {
+            const grid = document.getElementById('galerieGrid');
+            if (!grid) return;
+            galleryImages.forEach(img => {
+              const item = document.createElement('div');
+              item.className = 'galerie-full-item';
+              item.dataset.cat = img.cat;
+
+              const image = document.createElement('img');
+              image.src = img.src;
+              image.alt = img.alt || '';
+              image.loading = 'lazy';
+
+              // Overlay hover avec icône zoom
+              const overlay = document.createElement('div');
+              overlay.className = 'galerie-full-overlay';
+              overlay.innerHTML = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,107,0.9)" stroke-width="1.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>';
+
+              item.appendChild(image);
+              item.appendChild(overlay);
+
+              // Clic sur le div OU l'image → ouvre la lightbox
+              item.addEventListener('click', function() {
+                openLightbox(this);
+              });
+
+              grid.appendChild(item);
+            });
+          }
+
+          document.addEventListener('DOMContentLoaded', renderGallery);
+        </script>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-bottom" style="border-top:none; padding-top:0;">
+          <p>&copy; 2025 Art Mode &amp; Culture</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+
+  <div class="page" id="page-rejoindre">
+
+    <section class="rejoindre-hero">
+      <div class="container">
+        <p class="section-label" style="justify-content:center;">Faites partie de l'aventure</p>
+        <h1 class="section-title">Rejoindre <em>AMC</em></h1>
+        <div class="divider" style="margin:24px auto;"></div>
+        <p style="max-width:580px; margin:0 auto; color:var(--beige); font-size:0.95rem; line-height:1.9;">
+          Artiste, créateur, bénévole ou simplement passionné de culture — votre place est dans notre communauté.
+        </p>
+      </div>
+    </section>
+
+    <section style="padding-top:0;">
+      <div class="container">
+        <div class="reveal" style="text-align:center; margin-bottom:48px;">
+          <p class="section-label" style="justify-content:center;">Votre profil</p>
+          <h2 class="section-title">Comment <em>participer</em></h2>
+        </div>
+        <div class="profils-grid">
+
+          <div class="profil-card reveal">
+            <div class="profil-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <h3 class="profil-title">Membre</h3>
+            <p class="profil-desc">Rejoignez la communauté AMC, participez aux événements et soutenez la culture à Lille en devenant membre adhérent.</p>
+          </div>
+
+          <div class="profil-card reveal">
+            <div class="profil-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h3 class="profil-title">Bénévole</h3>
+            <p class="profil-desc">Contribuez à l'organisation de nos événements et devenez acteur de la vie culturelle lilloise en donnant de votre temps.</p>
+          </div>
+
+          <div class="profil-card reveal">
+            <div class="profil-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+            </div>
+            <h3 class="profil-title">Artiste</h3>
+            <p class="profil-desc">Exposez votre travail, participez à nos événements et développez votre réseau au sein d'une communauté artistique engagée.</p>
+          </div>
+
+          <div class="profil-card reveal">
+            <div class="profil-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <h3 class="profil-title">Exposant</h3>
+            <p class="profil-desc">Présentez vos créations lors de nos expositions et défilés et bénéficiez d'une visibilité auprès d'un public cultuel et engagé.</p>
+          </div>
+
+          <div class="profil-card reveal">
+            <div class="profil-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="profil-title">Partenaire</h3>
+            <p class="profil-desc">Associez votre image aux valeurs d'AMC et bénéficiez d'une visibilité lors de nos événements en devenant partenaire.</p>
+          </div>
+
+          <div class="profil-card reveal">
+            <div class="profil-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <h3 class="profil-title">Sponsor</h3>
+            <p class="profil-desc">Soutenez financièrement les projets culturels d'AMC et contribuez au rayonnement de la culture à Lille et au-delà.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section style="background:var(--black-soft);">
+      <div class="container">
+        <div class="reveal" style="text-align:center; margin-bottom:48px;">
+          <p class="section-label" style="justify-content:center;">Adhésion</p>
+          <h2 class="section-title">Cotisations &amp; <em>Avantages</em></h2>
+        </div>
+        <div class="cotisations-grid" style="max-width:520px; margin:0 auto;">
+
+          <div class="cotisation-card featured reveal" style="text-align:center;">
+            <div class="cotisation-badge">Adhésion AMC</div>
+            <h3 class="cotisation-title">Cotisation Annuelle</h3>
+            <div class="cotisation-price">30<span style="font-size:1.5rem;">€</span></div>
+            <p class="cotisation-period">par an · tarif unique</p>
+            <ul class="cotisation-features">
+              <li>Carte de membre officielle AMC</li>
+              <li>Participation aux activités de l'association</li>
+              <li>Accès privilégié à certains événements</li>
+              <li>Intégration au réseau AMC</li>
+              <li>Soutien aux projets culturels</li>
+              <li>Newsletter exclusive membres</li>
+            </ul>
+            <button class="btn-primary" style="width:100%;" onclick="navigate('paiement')">Adhérer pour 30 €</button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULAIRE D'ADHÉSION -->
+    <section class="form-section">
+      <div class="container">
+        <div class="reveal" style="text-align:center; margin-bottom:48px;">
+          <p class="section-label" style="justify-content:center;">Inscription</p>
+          <h2 class="section-title">Formulaire <em>d'adhésion</em></h2>
+          <p style="color:var(--beige); margin-top:16px; font-size:0.95rem;">Remplissez ce formulaire pour rejoindre l'association. Vous recevrez une confirmation par email.</p>
+        </div>
+
+        <div id="adhesionSuccess" style="display:none; text-align:center; padding:40px; border:1px solid var(--gold); border-radius:8px; margin-bottom:32px;">
+          <div style="font-size:2.5rem; margin-bottom:16px;">✓</div>
+          <h3 style="color:var(--gold); margin-bottom:12px;">Demande envoyée avec succès !</h3>
+          <p style="color:var(--beige);">Nous avons bien reçu votre demande d'adhésion. L'équipe AMC vous contactera très prochainement pour finaliser votre inscription.</p>
+        </div>
+
+        <div class="form-grid" id="adhesionForm">
+          <div class="form-group reveal">
+            <label for="nom">Nom complet *</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom et prénom" autocomplete="name" required />
+          </div>
+          <div class="form-group reveal">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="votre@email.com" autocomplete="email" required />
+          </div>
+          <div class="form-group reveal">
+            <label for="tel">Téléphone</label>
+            <input type="tel" id="tel" name="tel" placeholder="06 00 00 00 00" autocomplete="tel" />
+          </div>
+          <div class="form-group reveal">
+            <label for="dateNaissance">Date de naissance</label>
+            <input type="date" id="dateNaissance" name="dateNaissance" />
+          </div>
+          <div class="form-group reveal">
+            <label for="profil">Profil *</label>
+            <select id="profil" name="profil" required>
+              <option value="">Choisissez votre profil</option>
+              <option value="membre">Membre</option>
+              <option value="benevole">Bénévole</option>
+              <option value="artiste">Artiste</option>
+              <option value="exposant">Exposant</option>
+              <option value="partenaire">Partenaire</option>
+              <option value="sponsor">Sponsor</option>
+            </select>
+          </div>
+          <div class="form-group reveal">
+            <label for="ville">Ville</label>
+            <input type="text" id="ville" name="ville" placeholder="Lille" />
+          </div>
+          <div class="form-group form-full reveal">
+            <label for="message">Message / Motivations</label>
+            <textarea id="message" name="message" placeholder="Parlez-nous de vous, de votre projet ou de vos motivations..."></textarea>
+          </div>
+          <div class="form-group form-full reveal" style="display:flex; align-items:flex-start; gap:12px;">
+            <input type="checkbox" id="rgpd" name="rgpd" style="width:18px; height:18px; margin-top:3px; accent-color:var(--gold);" required />
+            <label for="rgpd" style="font-size:0.85rem; color:var(--beige); cursor:pointer;">J'accepte que mes données soient conservées par Art Mode & Culture dans le cadre de mon adhésion, conformément au RGPD. *</label>
+          </div>
+          <div class="form-submit reveal" style="display:flex; gap:16px; flex-wrap:wrap;">
+            <button class="btn-primary" type="button" onclick="submitAdhesion()">Envoyer ma demande d'adhésion</button>
+            <button class="btn-outline" type="button" onclick="navigate('paiement')" style="white-space:nowrap;">Puis payer ma cotisation →</button>
+          </div>
+        </div>
+
+        <!-- Bouton export CSV — visible uniquement admin -->
+        <div style="text-align:right; margin-top:24px;">
+          <button class="btn-outline" onclick="exportCSV()" style="font-size:0.75rem; padding:8px 16px; opacity:0.5; border-color:rgba(200,169,107,0.3);" title="Export réservé à l'administration">
+            ⬇ Exporter les adhérents (CSV)
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-bottom" style="border-top:none; padding-top:0;">
+          <p>&copy; 2025 Art Mode &amp; Culture</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+
+  <div class="page" id="page-don">
+
+    <section class="don-hero">
+      <div class="container">
+        <p class="section-label" style="justify-content:center;">Soutenir AMC</p>
+        <h1 class="section-title">Faire un <em>Don</em></h1>
+        <div class="divider" style="margin:24px auto 32px;"></div>
+        <p style="max-width:600px; margin:0 auto; color:var(--beige); font-size:0.95rem; line-height:1.9;">
+          Soutenez les actions culturelles et artistiques d'Art Mode &amp; Culture en participant au développement de projets, d'événements et d'initiatives locales.
+        </p>
+      </div>
+    </section>
+
+    <section style="padding-top:0;">
+      <div class="container" style="max-width:800px;">
+        <div class="reveal" style="text-align:center; margin-bottom:40px;">
+          <p class="section-label" style="justify-content:center;">Don rapide</p>
+          <h2 class="section-title">Choisissez votre <em>montant</em></h2>
+        </div>
+
+        <div class="montants-grid">
+          <button class="montant-btn" onclick="selectMontant(this, 10)">10 €</button>
+          <button class="montant-btn active" onclick="selectMontant(this, 50)">50 €</button>
+          <button class="montant-btn" onclick="selectMontant(this, 100)">100 €</button>
+          <button class="montant-btn" onclick="selectMontant(this, 250)">250 €</button>
+          <div class="montant-btn montant-custom">
+            <input class="montant-input" id="customMontant" type="number" min="1" placeholder="Montant libre (€)" aria-label="Montant personnalisé" />
+          </div>
+        </div>
+
+        <div style="text-align:center; margin-top:32px;">
+          <button class="btn-primary" id="donBtn">Faire un don de 50 €</button>
+        </div>
+      </div>
+    </section>
+
+    <section style="background:var(--black-soft);">
+      <div class="container">
+        <div class="reveal" style="text-align:center; margin-bottom:48px;">
+          <p class="section-label" style="justify-content:center;">À quoi servent vos dons</p>
+          <h2 class="section-title">Votre <em>impact</em></h2>
+        </div>
+        <div class="impact-grid">
+
+          <div class="impact-card reveal">
+            <div class="impact-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <p class="impact-title">Événements</p>
+            <p class="impact-desc">Financement de l'organisation de concerts, festivals et expositions culturelles à Lille.</p>
+          </div>
+
+          <div class="impact-card reveal">
+            <div class="impact-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+            </div>
+            <p class="impact-title">Soutien aux artistes</p>
+            <p class="impact-desc">Aide à l'émergence et à la visibilité des artistes et créateurs locaux.</p>
+          </div>
+
+          <div class="impact-card reveal">
+            <div class="impact-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <p class="impact-title">Développement culturel</p>
+            <p class="impact-desc">Projets culturels innovants pour enrichir le paysage artistique de Lille.</p>
+          </div>
+
+          <div class="impact-card reveal">
+            <div class="impact-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <p class="impact-title">Ateliers &amp; actions</p>
+            <p class="impact-desc">Ateliers artistiques et actions locales pour rendre la culture accessible à tous.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-bottom" style="border-top:none; padding-top:0;">
+          <p>&copy; 2025 Art Mode &amp; Culture</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+
+  <div class="page" id="page-partenaires">
+
+    <section class="partenaires-hero">
+      <div class="container">
+        <p class="section-label" style="justify-content:center;">Ils nous font confiance</p>
+        <h1 class="section-title">Nos <em>Partenaires</em></h1>
+        <div class="divider" style="margin:24px auto;"></div>
+        <p style="max-width:560px; margin:0 auto; color:var(--beige); font-size:0.95rem; line-height:1.9;">
+          AMC s'entoure de partenaires institutionnels et culturels qui partagent nos valeurs d'inclusion, de diversité et de créativité.
+        </p>
+      </div>
+    </section>
+
+    <section style="padding-top:0;">
+      <div class="container">
+        <div class="reveal">
+          <p class="section-label">Partenariats culturels</p>
+          <h2 class="section-title">Nos <em>collaborations</em></h2>
+        </div>
+        <div class="partenaires-grid">
+          <div class="partenaire-card reveal">Partenaire culturel</div>
+          <div class="partenaire-card reveal">Institution publique</div>
+          <div class="partenaire-card reveal">Partenaire média</div>
+          <div class="partenaire-card reveal">Sponsor officiel</div>
+          <div class="partenaire-card reveal">Partenaire artistique</div>
+          <div class="partenaire-card reveal">Collectivité locale</div>
+          <div class="partenaire-card reveal">Association partenaire</div>
+          <div class="partenaire-card reveal">Mécène</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-banner">
+      <div class="container" style="position:relative; z-index:1;">
+        <div class="reveal">
+          <p class="section-label" style="justify-content:center;">Collaboration</p>
+          <h2 class="section-title">Devenez <em>partenaire</em></h2>
+          <p>Associez votre image aux valeurs d'AMC et bénéficiez d'une visibilité premium lors de nos événements.</p>
+          <button class="btn-primary" onclick="navigate('contact')">Nous contacter</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-bottom" style="border-top:none; padding-top:0;">
+          <p>&copy; 2025 Art Mode &amp; Culture</p>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+
+  <div class="page" id="page-contact">
+
+    <section class="contact-hero">
+      <div class="container">
+        <p class="section-label" style="justify-content:center;">Écrivez-nous</p>
+        <h1 class="section-title"><em>Contact</em></h1>
+        <div class="divider" style="margin:24px auto;"></div>
+      </div>
+    </section>
+
+    <section style="padding-top:0;">
+      <div class="container">
+        <div class="contact-grid">
+
+          <div class="contact-info reveal">
+            <h3>Art Mode &amp; Culture</h3>
+
+            <div class="contact-detail">
+              <p class="label">Adresse</p>
+              <p>72 Rue de Flers<br />59000 Lille</p>
+            </div>
+
+            <div class="contact-detail">
+              <p class="label">Téléphone</p>
+              <a href="tel:+33366964352">03 66 96 43 52</a>
+              <a href="tel:+33635793691">06 35 79 36 91</a>
+            </div>
+
+            <div class="contact-detail">
+              <p class="label">Réseaux sociaux</p>
+              <div style="display:flex; gap:12px; margin-top:8px;">
+                <a class="social-icon" href="https://www.facebook.com/artmodeetculture" target="_blank" rel="noopener" aria-label="Facebook">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a class="social-icon" href="https://www.instagram.com/artmodeetculture" target="_blank" rel="noopener" aria-label="Instagram">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                </a>
+              </div>
+            </div>
+
+            <div class="map-placeholder">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2531.4!2d3.0499!3d50.6309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c2d57938c30c7d%3A0x8f4a6ad2439ce7f!2s72%20Rue%20de%20Flers%2C%2059000%20Lille!5e0!3m2!1sfr!2sfr!4v1700000000000"
+                loading="lazy"
+                title="Localisation Art Mode &amp; Culture — 72 Rue de Flers, Lille"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+
+          <div class="reveal">
+            <div class="form-grid" style="max-width:100%; margin:0;">
+              <div class="form-group">
+                <label for="c-nom">Nom complet</label>
+                <input type="text" id="c-nom" name="nom" placeholder="Votre nom" autocomplete="name" />
+              </div>
+              <div class="form-group">
+                <label for="c-email">Email</label>
+                <input type="email" id="c-email" name="email" placeholder="votre@email.com" autocomplete="email" />
+              </div>
+              <div class="form-group">
+                <label for="c-tel">Téléphone</label>
+                <input type="tel" id="c-tel" name="tel" placeholder="06 00 00 00 00" autocomplete="tel" />
+              </div>
+              <div class="form-group">
+                <label for="c-sujet">Sujet</label>
+                <select id="c-sujet" name="sujet">
+                  <option value="">Choisissez un sujet</option>
+                  <option value="adhesion">Adhésion</option>
+                  <option value="partenariat">Partenariat</option>
+                  <option value="evenement">Événement</option>
+                  <option value="presse">Presse</option>
+                  <option value="autre">Autre</option>
+                </select>
+              </div>
+              <div class="form-group form-full">
+                <label for="c-message">Message</label>
+                <textarea id="c-message" name="message" placeholder="Votre message..." style="min-height:160px;"></textarea>
+              </div>
+              <div class="form-submit">
+                <button class="btn-primary" type="submit">Envoyer le message</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <img src="logo.png" alt="Art Mode &amp; Culture" />
+            <p>Association culturelle engagée dans la promotion de la culture, de l'art et de la mode à Lille.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Navigation</h4>
+            <a onclick="navigate('accueil')">Accueil</a>
+            <a onclick="navigate('association')">L'Association</a>
+            <a onclick="navigate('evenements')">Événements</a>
+            <a onclick="navigate('galerie')">Galerie</a>
+          </div>
+          <div class="footer-col">
+            <h4>Rejoindre</h4>
+            <a onclick="navigate('rejoindre')">Devenir membre</a>
+            <a onclick="navigate('don')">Faire un don</a>
+            <a onclick="navigate('partenaires')">Partenariats</a>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <p>72 Rue de Flers<br />59000 Lille</p>
+            <p>03 66 96 43 52</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Art Mode &amp; Culture · Association Loi 1901</p>
+          <div style="display:flex; gap:24px;">
+            <a onclick="navigate('mentions')">Mentions légales</a>
+            <a onclick="navigate('confidentialite')">Confidentialité</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+
+  <div class="page" id="page-paiement">
+    <section style="padding:140px 0 40px;">
+      <div class="container" style="max-width:680px;">
+
+        <!-- En-tête -->
+        <div style="text-align:center; margin-bottom:56px;" class="reveal">
+          <p class="section-label" style="justify-content:center;">Adhésion</p>
+          <h1 class="section-title">Paiement de <em>la cotisation</em></h1>
+          <p style="color:var(--beige); margin-top:16px; line-height:1.8;">
+            Finalisez votre adhésion à Art Mode &amp; Culture en réglant la cotisation annuelle de <strong style="color:var(--gold);">30 €</strong>.
+          </p>
+        </div>
+
+            <div class="reveal" style="border:1px solid rgba(200,169,107,0.25); border-radius:8px; padding:32px; margin-bottom:40px; background:rgba(200,169,107,0.03);">
+          <h3 style="color:var(--gold); font-family:'Cormorant Garamond',serif; font-size:1.3rem; margin-bottom:20px;">Récapitulatif</h3>
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.07);">
+            <span style="color:var(--beige);">Cotisation annuelle AMC</span>
+            <span style="color:var(--or,#C8A96B); font-weight:600;">30,00 €</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.07);">
+            <span style="color:var(--beige);">Carte de membre officielle</span>
+            <span style="color:rgba(255,255,255,0.4); font-size:0.85rem;">incluse</span>
+          </div>
+          <div style="display:flex; justify-content:space-between; align-items:center; padding:16px 0 0;">
+            <span style="color:#fff; font-weight:600;">Total</span>
+            <span style="color:var(--gold); font-size:1.5rem; font-weight:700;">30,00 €</span>
+          </div>
+        </div>
+
+            <div class="reveal" style="margin-bottom:32px;">
+          <h3 style="color:var(--gold); font-family:'Cormorant Garamond',serif; font-size:1.2rem; margin-bottom:20px;">Vos informations</h3>
+          <div class="form-grid" style="gap:16px;">
+            <div class="form-group">
+              <label for="pay-nom">Nom complet *</label>
+              <input type="text" id="pay-nom" placeholder="Votre nom et prénom" required />
+            </div>
+            <div class="form-group">
+              <label for="pay-email">Email *</label>
+              <input type="email" id="pay-email" placeholder="votre@email.com" required />
+            </div>
+          </div>
+        </div>
+
+            <div class="reveal" style="border:1px solid rgba(200,169,107,0.2); border-radius:8px; padding:32px; margin-bottom:32px; background:rgba(0,0,0,0.2);">
+          <h3 style="color:var(--gold); font-family:'Cormorant Garamond',serif; font-size:1.2rem; margin-bottom:8px;">Paiement sécurisé</h3>
+          <p style="color:rgba(255,255,255,0.4); font-size:0.82rem; margin-bottom:24px;">🔒 Cette zone est prête à accueillir votre système de paiement (Stripe, PayPal, HelloAsso, virement...)</p>
+
+          <!-- Placeholder Stripe — à remplacer par le vrai composant -->
+          <div id="payment-element" style="border:1px dashed rgba(200,169,107,0.3); border-radius:6px; padding:32px; text-align:center; color:rgba(200,169,107,0.5); font-size:0.9rem; letter-spacing:0.08em;">
+            <div style="font-size:2rem; margin-bottom:8px;">💳</div>
+            <div>INTÉGRATION PAIEMENT</div>
+            <div style="font-size:0.75rem; margin-top:6px; opacity:0.6;">Stripe / PayPal / HelloAsso / Virement</div>
+          </div>
+
+                <div style="margin-top:24px;">
+            <p style="color:var(--beige); font-size:0.88rem; margin-bottom:12px;">Vous pouvez aussi régler par :</p>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <div style="flex:1; min-width:180px; border:1px solid rgba(255,255,255,0.1); border-radius:6px; padding:14px 16px;">
+                <div style="color:var(--gold); font-size:0.8rem; font-weight:600; margin-bottom:4px;">Virement bancaire</div>
+                <div style="color:rgba(255,255,255,0.45); font-size:0.78rem;">Coordonnées communiquées par email après inscription</div>
+              </div>
+              <div style="flex:1; min-width:180px; border:1px solid rgba(255,255,255,0.1); border-radius:6px; padding:14px 16px;">
+                <div style="color:var(--gold); font-size:0.8rem; font-weight:600; margin-bottom:4px;">Chèque</div>
+                <div style="color:rgba(255,255,255,0.45); font-size:0.78rem;">À l'ordre de Art Mode &amp; Culture — 72 Rue de Flers, 59000 Lille</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+            <div class="reveal" style="text-align:center;">
+          <button class="btn-primary" style="width:100%; max-width:380px; padding:18px; font-size:1rem;" onclick="handlePayment()">
+            Payer 30 € et finaliser mon adhésion
+          </button>
+          <p style="margin-top:14px; font-size:0.78rem; color:rgba(255,255,255,0.3);">
+            🔒 Paiement sécurisé · Vos données sont protégées
+          </p>
+          <p style="margin-top:8px; font-size:0.8rem; color:rgba(255,255,255,0.35);">
+            Pas encore rempli le formulaire d'adhésion ? <a onclick="navigate('rejoindre')" style="color:var(--gold); cursor:pointer; text-decoration:underline;">Retour à l'inscription</a>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-bottom" style="border-top:none; padding-top:0;">
+          <p>&copy; 2025 Art Mode &amp; Culture</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <div class="page" id="page-mentions">
+    <section style="padding:160px 0 80px;">
+      <div class="container" style="max-width:760px;">
+        <p class="section-label">Légal</p>
+        <h1 class="section-title">Mentions <em>légales</em></h1>
+        <div class="divider"></div>
+        <div style="color:var(--beige); font-size:0.88rem; line-height:1.9;">
+          <p><strong style="color:var(--gold);">Éditeur du site</strong></p>
+          <p>Art Mode &amp; Culture — Association loi 1901<br />72 Rue de Flers, 59000 Lille<br />Téléphone : 03 66 96 43 52</p>
+          <br />
+          <p><strong style="color:var(--gold);">Hébergement</strong></p>
+          <p>Ce site est hébergé par un prestataire technique indépendant.</p>
+          <br />
+          <p><strong style="color:var(--gold);">Propriété intellectuelle</strong></p>
+          <p>L'ensemble du contenu de ce site (textes, images, logo) est la propriété exclusive d'Art Mode &amp; Culture. Toute reproduction est interdite sans autorisation préalable.</p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="footer-bottom" style="border-top:none; padding-top:0;">
+          <p>&copy; 2025 Art Mode &amp; Culture · <a onclick="navigate('accueil')">Retour à l'accueil</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <div class="page" id="page-confidentialite">
+    <section style="padding:160px 0 80px;">
+      <div class="container" style="max-width:760px;">
+        <p class="section-label">Politique</p>
+        <h1 class="section-title">Politique de <em>confidentialité</em></h1>
+        <div class="divider"></div>
+        <div style="color:var(--beige); font-size:0.88rem; line-height:1.9;">
+          <p><strong style="color:var(--gold);">Collecte des données</strong></p>
+          <p>Les données personnelles collectées via les formulaires (nom, email, téléphone) sont utilisées exclusivement dans le cadre des activités d'AMC et ne sont jamais transmises à des tiers.</p>
+          <br />
+          <p><strong style="color:var(--gold);">Droits des utilisateurs</strong></p>
+          <p>Conformément au RGPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour l'exercer : 72 Rue de Flers, 59000 Lille.</p>
+          <br />
+          <p><strong style="color:var(--gold);">Cookies</strong></p>
+          <p>Ce site n'utilise pas de cookies de traçage à des fins publicitaires.</p>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container">
+        <div class="footer-bottom" style="border-top:none; padding-top:0;">
+          <p>&copy; 2025 Art Mode &amp; Culture · <a onclick="navigate('accueil')">Retour à l'accueil</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+  <!-- Script principal -->
+  <script src="Main.js"></script>
+
+</body>
+</html>
